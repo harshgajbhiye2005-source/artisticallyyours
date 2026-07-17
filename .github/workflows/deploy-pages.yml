@@ -3,7 +3,6 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - claude/miranda-portfolio-clone-ch9lw5
       - main
   workflow_dispatch:
 
@@ -32,7 +31,7 @@ jobs:
       - run: npm ci
       - run: npm run build
         env:
-          PAGES_BASE_PATH: /agencysite
+          PAGES_BASE_PATH: /artisticallyyours
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out

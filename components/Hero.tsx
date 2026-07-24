@@ -11,7 +11,7 @@ export default function Hero() {
     <section id="top" className="overflow-hidden px-5 pb-24 pt-28 sm:px-12 sm:pt-36">
       <div className="mx-auto max-w-[95rem]">
         {/* Giant name — masked line reveal */}
-        <h1 className="display overflow-hidden whitespace-nowrap text-center text-[clamp(2.6rem,11vw,10.4rem)]">
+        <h1 className="display overflow-hidden text-center text-[clamp(2.4rem,8vw,7.5rem)]">
           <motion.span
             className="block"
             initial={{ y: "105%" }}

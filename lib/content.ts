@@ -5,7 +5,7 @@
 
 export const site = {
   brand: "Portfix",
-  name: "Miranda Halim",
+  name: "Artistically Yours",
   role: "UI & UX Designer",
   availability: "Available for task",
   intro:

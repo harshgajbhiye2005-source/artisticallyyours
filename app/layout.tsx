@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Miranda Halim — UI & UX Designer",
+  title: "Artistically Yours — Branding & Design Studio",
   description:
     "Placeholder — portfolio of a digital designer and web developer crafting bold, user-focused digital experiences.",
 };

@@ -30,28 +30,34 @@ export const nav = [
 
 export const services = [
   {
-    title: "UI & UX Design",
-    description:
-      "Interfaces that feel effortless — research-driven flows, wireframes, and polished screens people enjoy using.",
-    tags: ["Minimal", "Website", "Visual", "UI/UX", "Usability"],
-  },
-  {
-    title: "Logo & Branding",
+    title: "Brand Identity",
     description:
       "Identity systems with real presence: logo, type, and color working together so the brand is recognized at a glance.",
-    tags: ["Identity", "Logo", "Guidelines", "Print", "Digital"],
+    tags: ["Logo", "Typography", "Color", "Guidelines", "Collateral"],
   },
   {
-    title: "Developer Support",
-    description:
-      "Design that ships. Clean handoffs, tokens, and close collaboration with engineers from first commit to launch.",
-    tags: ["Handoff", "Tokens", "QA", "Systems", "Launch"],
-  },
-  {
-    title: "Branding Strategy",
+    title: "Brand Strategy",
     description:
       "Positioning and messaging grounded in research, so every touchpoint tells one clear, convincing story.",
-    tags: ["Research", "Positioning", "Voice", "Story", "Growth"],
+    tags: ["Research", "Positioning", "Voice", "Story", "Audience"],
+  },
+  {
+    title: "Packaging Design",
+    description:
+      "Packaging that sells from the shelf — structure, label, and finish designed to be picked up, not passed by.",
+    tags: ["Label", "Structure", "Print", "Mockups", "Retail"],
+  },
+  {
+    title: "Brand Marketing",
+    description:
+      "Campaigns and content that carry the brand into the world — social, launch, and always-on marketing that stays on-brand.",
+    tags: ["Campaigns", "Social", "Content", "Launch", "Growth"],
+  },
+  {
+    title: "UI/UX Design",
+    description:
+      "Interfaces that feel effortless — research-driven flows, wireframes, and polished screens people enjoy using.",
+    tags: ["Website", "App", "Wireframes", "Prototype", "Usability"],
   },
 ];
 
@@ -143,10 +149,11 @@ export const footerColumns = [
   {
     heading: "Services",
     links: [
-      "UI & UX Design",
-      "Logo & Branding",
-      "Developer Support",
-      "Branding Strategy",
+      "Brand Identity",
+      "Brand Strategy",
+      "Packaging Design",
+      "Brand Marketing",
+      "UI/UX Design",
     ],
   },
 ];

@@ -9,7 +9,7 @@ import { services } from "@/lib/content";
  * piling up like scattered papers.
  */
 export default function Services() {
-  const rotations = [-2.5, 3, -3.5, 2];
+  const rotations = [-2.5, 3, -3.5, 2, -2];
 
   return (
     <section id="services" className="relative overflow-hidden bg-dark py-32">
@@ -35,7 +35,7 @@ export default function Services() {
           <div key={service.title} className="sticky top-[16vh] pb-16">
             <motion.article
               initial={{ opacity: 0, y: 80, rotate: 0 }}
-              whileInView={{ opacity: 1, y: 0, rotate: rotations[i % 4] }}
+              whileInView={{ opacity: 1, y: 0, rotate: rotations[i % rotations.length] }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               className="bg-white p-8 shadow-[0_24px_80px_rgba(0,0,0,0.45)] sm:p-12"

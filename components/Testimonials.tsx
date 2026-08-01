@@ -1,73 +1,49 @@
 "use client";
 
-import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import Reveal from "@/components/Reveal";
 import { testimonials } from "@/lib/content";
 
-/** Carousel of giant uppercase quotes, two per slide, with dot pagination. */
 export default function Testimonials() {
-  const perSlide = 2;
-  const slides: (typeof testimonials)[] = [];
-  for (let i = 0; i < testimonials.length; i += perSlide) {
-    slides.push(testimonials.slice(i, i + perSlide));
-  }
-  const [index, setIndex] = useState(0);
-
   return (
-    <section className="mx-auto max-w-[95rem] overflow-hidden px-5 py-32 sm:px-12">
-      <Reveal>
-        <h2 className="display text-[clamp(2.4rem,8.3vw,7.5rem)]">
-          Testimonials
-        </h2>
-      </Reveal>
+    <section className="relative overflow-hidden bg-blue py-24 text-white">
+      {/* Oversized ghost initials, as in the design */}
+      <span
+        aria-hidden
+        className="heading pointer-events-none absolute right-6 top-1/2 hidden -translate-y-1/2 select-none text-[22rem] leading-none text-white/10 lg:block"
+      >
+        AY
+      </span>
 
-      <div className="mt-20 min-h-[22rem]">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, x: 60 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -60 }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="grid gap-16 md:grid-cols-2"
-          >
-            {slides[index].map((t) => (
-              <figure key={t.quote}>
+      <div className="relative mx-auto max-w-[76rem] px-5 sm:px-10">
+        <Reveal>
+          <h2 className="heading text-[clamp(1.6rem,3.6vw,2.5rem)]">
+            What they say about us ....
+          </h2>
+        </Reveal>
+
+        <div className="mt-12 grid gap-10 md:grid-cols-2">
+          {testimonials.map((t, i) => (
+            <Reveal key={i} delay={i * 0.12}>
+              <figure>
                 <figcaption className="flex items-center gap-4">
                   {/* Avatar placeholder */}
-                  <span className="flex h-16 w-16 items-center justify-center rounded-full bg-surface text-sm font-bold">
-                    {t.name
-                      .split(" ")
-                      .map((w) => w[0])
-                      .join("")}
-                  </span>
+                  <span className="block h-14 w-14 shrink-0 rounded-full bg-white" />
                   <span>
-                    <span className="display block text-xl">{t.name}</span>
-                    <span className="block text-base text-muted">{t.role}</span>
+                    <span className="block text-sm font-semibold uppercase tracking-wide">
+                      {t.name}
+                    </span>
+                    <span className="block text-sm text-white/70">
+                      {t.role}
+                    </span>
                   </span>
                 </figcaption>
-                <blockquote className="display mt-10 text-xl leading-snug sm:text-[2rem]">
-                  “ {t.quote} ”
+                <blockquote className="mt-6 text-lg leading-relaxed">
+                  {t.quote}
                 </blockquote>
               </figure>
-            ))}
-          </motion.div>
-        </AnimatePresence>
-      </div>
-
-      {/* Dots */}
-      <div className="mt-16 flex justify-center gap-2.5">
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            aria-label={`Show testimonials ${i + 1}`}
-            onClick={() => setIndex(i)}
-            className={`h-2.5 w-2.5 rounded-full transition-colors duration-300 ${
-              i === index ? "bg-foreground" : "bg-neutral-300"
-            }`}
-          />
-        ))}
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );

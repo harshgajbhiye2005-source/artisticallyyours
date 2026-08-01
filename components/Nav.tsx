@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { nav, site } from "@/lib/content";
 import RollLink from "@/components/RollLink";
@@ -20,44 +21,41 @@ export default function Nav() {
   return (
     <motion.header
       initial={{ y: -24, opacity: 0 }}
-      animate={{ y: hidden ? "-100%" : "0%", opacity: 1 }}
+      animate={{ y: hidden ? "-110%" : "0%", opacity: 1 }}
       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
         scrolled || open
-          ? "border-b border-line bg-background/85 backdrop-blur-md"
+          ? "border-b border-line bg-background/90 backdrop-blur-md"
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-[95rem] items-center justify-between px-5 py-5 sm:px-12">
-        {/* Logo */}
-        <a
-          href="#top"
-          className="flex items-center gap-2 text-xl font-bold uppercase tracking-tight"
-        >
-          <span
-            aria-hidden
-            className="flex h-8 w-8 items-center justify-center rounded-lg border-2 border-foreground text-sm"
-          >
-            ✦
-          </span>
-          {site.brand}
-        </a>
+      <div className="mx-auto flex max-w-[88rem] items-center justify-between px-5 py-4 sm:px-10">
+        {/* Wordmark */}
+        <Link href="/" className="leading-[1.05]">
+          {site.logoLines.map((line) => (
+            <span
+              key={line}
+              className="block text-sm font-medium lowercase tracking-tight sm:text-base"
+            >
+              {line}
+            </span>
+          ))}
+        </Link>
 
-        {/* Desktop links */}
-        <nav className="hidden items-center gap-9 md:flex">
+        <nav className="hidden items-center gap-10 md:flex">
           {nav.map((item) => (
-            <a
+            <Link
               key={item.label}
               href={item.href}
-              className="text-sm font-semibold uppercase tracking-tight text-foreground transition-opacity hover:opacity-50"
+              className="text-sm font-medium uppercase tracking-wide transition-colors duration-300 hover:text-pink"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
         <div className="hidden md:block">
-          <RollLink label="Let’s talk" href="#contact" />
+          <RollLink label="Let's talk" href="/#contact" />
         </div>
 
         {/* Mobile toggle */}
@@ -77,7 +75,6 @@ export default function Nav() {
         </button>
       </div>
 
-      {/* Mobile menu */}
       {open && (
         <motion.nav
           initial={{ opacity: 0, y: -8 }}
@@ -85,22 +82,22 @@ export default function Nav() {
           className="flex flex-col border-t border-line px-5 pb-6 md:hidden"
         >
           {nav.map((item) => (
-            <a
+            <Link
               key={item.label}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="border-b border-line py-4 text-lg font-semibold uppercase tracking-tight"
+              className="border-b border-line py-4 text-lg font-medium uppercase tracking-wide"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
-          <a
-            href="#contact"
+          <Link
+            href="/#contact"
             onClick={() => setOpen(false)}
-            className="py-4 text-lg font-semibold uppercase tracking-tight"
+            className="py-4 text-lg font-medium uppercase tracking-wide"
           >
-            [ Let’s talk ]
-          </a>
+            {"{ Let's talk }"}
+          </Link>
         </motion.nav>
       )}
     </motion.header>

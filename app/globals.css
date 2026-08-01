@@ -2,23 +2,26 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #0d0d0d;
-  --muted: #555555;
-  --surface: #f0f0f0;
-  --dark: #0d0d0d;
-  --line: rgba(13, 13, 13, 0.12);
-  --line-invert: rgba(255, 255, 255, 0.16);
+  --foreground: #141414;
+  --muted: #5f5f5f;
+  --line: rgba(20, 20, 20, 0.14);
+
+  /* Brand palette from the design */
+  --green: #00a24e;
+  --pink: #f92e8c;
+  --blue: #1b3fc9;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
-  --color-surface: var(--surface);
-  --color-dark: var(--dark);
   --color-line: var(--line);
-  --color-line-invert: var(--line-invert);
-  --font-sans: var(--font-inter);
+  --color-green: var(--green);
+  --color-pink: var(--pink);
+  --color-blue: var(--blue);
+  --font-sans: var(--font-poppins);
+  --font-display: var(--font-instrument-serif);
 }
 
 html {
@@ -28,25 +31,60 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+  font-family: var(--font-poppins), Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
 ::selection {
-  background: var(--foreground);
-  color: var(--background);
+  background: var(--pink);
+  color: #fff;
 }
 
-/* Display headline style used across all sections */
-.display {
+/* Italic serif accent used on headline words */
+.accent {
+  font-family: var(--font-instrument-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+/* Section headings */
+.heading {
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: -0.04em;
-  line-height: 1;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
 }
 
-/* Infinite horizontal marquee (track duplicated for seamless loop) */
+/* Postage-stamp frame around the mascot */
+.stamp {
+  --dot: 7px;
+  --step: 20px;
+  background: var(--blue);
+  padding: 14px;
+  -webkit-mask:
+    radial-gradient(var(--dot) at 50% 0, #0000 97%, #000) 50% 0 / var(--step)
+      100% repeat-x,
+    radial-gradient(var(--dot) at 50% 100%, #0000 97%, #000) 50% 100% /
+      var(--step) 100% repeat-x,
+    radial-gradient(var(--dot) at 0 50%, #0000 97%, #000) 0 50% / 100%
+      var(--step) repeat-y,
+    radial-gradient(var(--dot) at 100% 50%, #0000 97%, #000) 100% 50% / 100%
+      var(--step) repeat-y;
+  -webkit-mask-composite: source-in;
+  mask:
+    radial-gradient(var(--dot) at 50% 0, #0000 97%, #000) 50% 0 / var(--step)
+      100% repeat-x,
+    radial-gradient(var(--dot) at 50% 100%, #0000 97%, #000) 50% 100% /
+      var(--step) 100% repeat-x,
+    radial-gradient(var(--dot) at 0 50%, #0000 97%, #000) 0 50% / 100%
+      var(--step) repeat-y,
+    radial-gradient(var(--dot) at 100% 50%, #0000 97%, #000) 100% 50% / 100%
+      var(--step) repeat-y;
+  mask-composite: intersect;
+}
+
+/* Infinite marquee (client logo strip) */
 @keyframes marquee {
   from {
     transform: translateX(0);
@@ -59,11 +97,11 @@ body {
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee var(--marquee-duration, 30s) linear infinite;
+  animation: marquee var(--marquee-duration, 36s) linear infinite;
 }
 
-.marquee-reverse {
-  animation-direction: reverse;
+.marquee-track:hover {
+  animation-play-state: paused;
 }
 
 @media (prefers-reduced-motion: reduce) {

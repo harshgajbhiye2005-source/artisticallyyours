@@ -1,106 +1,134 @@
 // ============================================================
-// PLACEHOLDER CONTENT — swap every value here for the client's
-// real content. All components read from this single file.
+// Content for Artistically Yours — taken from the client's
+// design PDF. All copy lives here so it's easy to update.
 // ============================================================
 
 export const site = {
-  brand: "Portfix",
   name: "Artistically Yours",
-  role: "UI & UX Designer",
-  availability: "Available for task",
-  intro:
-    "I'm a digital designer and web developer crafting bold, user-focused experiences where aesthetics and usability meet.",
-  email: "hello@example.com",
-  phone: "+91 00000 00000",
-  location: "Mumbai, India",
+  logoLines: ["artistically", "yours"],
+  email: "info@artisticallyyours.com",
+  phone: "+91 9588472910",
   socials: [
-    { label: "Behance", href: "#" },
-    { label: "YouTube", href: "#" },
-    { label: "Dribbble", href: "#" },
-    { label: "Pinterest", href: "#" },
+    { label: "instagram", href: "#" },
+    { label: "linkedin", href: "#" },
   ],
 };
 
 export const nav = [
-  { label: "Home", href: "#top" },
-  { label: "Work", href: "#work" },
-  { label: "Service", href: "#services" },
-  { label: "About me", href: "#about" },
+  { label: "Home", href: "/" },
+  { label: "Projects", href: "/#projects" },
+  { label: "About us", href: "/about" },
 ];
+
+export const hero = {
+  line1: "Build what you're",
+  accent: "proud",
+  line1End: "of.",
+  line2: "We'll help the world see it.",
+};
+
+// Big ghost word behind the services stack
+export const servicesGhost = "artistically yours";
 
 export const services = [
   {
     title: "Brand Identity",
-    description:
-      "Identity systems with real presence: logo, type, and color working together so the brand is recognized at a glance.",
-    tags: ["Logo", "Typography", "Color", "Guidelines", "Collateral"],
+    lead: "Your visuals set the vibe before you ever say hello.",
+    body: "They should feel like you, not just look good. We believe every element should have a purpose, because the best brands are built with intention, not decoration.",
+    tags: [
+      "Logo Kit",
+      "Colour Palette",
+      "Font Suite",
+      "Brand Pattern",
+      "Stationery",
+      "More",
+    ],
   },
   {
+    // NOTE: not shown as a card in the design PDF — kept per earlier
+    // instruction to list five services. Remove if the designer intended four.
     title: "Brand Strategy",
-    description:
-      "Positioning and messaging grounded in research, so every touchpoint tells one clear, convincing story.",
-    tags: ["Research", "Positioning", "Voice", "Story", "Audience"],
+    lead: "Before anything looks good, it has to mean something.",
+    body: "We dig into who you are, who you're for, and why it matters — then turn that into positioning and messaging every other decision can stand on.",
+    tags: ["Research", "Positioning", "Messaging", "Naming", "Brand Voice"],
   },
   {
-    title: "Packaging Design",
-    description:
-      "Packaging that sells from the shelf — structure, label, and finish designed to be picked up, not passed by.",
-    tags: ["Label", "Structure", "Print", "Mockups", "Retail"],
+    title: "Packaging",
+    lead: "We try to hit three core principles when it comes to packaging design:",
+    bullets: ["Built with purpose", "Designed to connect", "Made to last"],
+    tags: ["Concepts", "Dieline Design", "Illustrated Artwork"],
   },
   {
-    title: "Brand Marketing",
-    description:
-      "Campaigns and content that carry the brand into the world — social, launch, and always-on marketing that stays on-brand.",
-    tags: ["Campaigns", "Social", "Content", "Launch", "Growth"],
+    title: "Socials",
+    lead: "Your audience is already scrolling.",
+    body: "We make sure they stop, notice, and remember your brand.",
+    tags: ["Concepts Unique To You", "Reels", "Design Posts"],
   },
   {
     title: "UI/UX Design",
-    description:
-      "Interfaces that feel effortless — research-driven flows, wireframes, and polished screens people enjoy using.",
-    tags: ["Website", "App", "Wireframes", "Prototype", "Usability"],
+    lead: "Design isn't just how it looks.",
+    body: "It's how it works, how it feels, and how effortlessly people move through it.",
+    tags: ["Website", "Experience", "UI/UX"],
   },
 ];
 
-export const projects = [
-  { title: "Hillside Harmony", year: "2025", client: "Zentryx" },
-  { title: "Elmstone Retreat", year: "2024", client: "Nexora" },
-  { title: "Lakeview Bloom", year: "2024", client: "Fluxon" },
-  { title: "Cedarfield Court", year: "2023", client: "CodeVista" },
-];
-
-// Text wordmarks stand in for client logos — swap for real SVGs later.
-export const clientLogos = [
-  "Logoipsum",
-  "Brandmark",
-  "Nimbus",
-  "Vertex",
-  "Halcyon",
-  "Orbita",
-  "Kindred",
-  "Monolith",
-  "Atlas",
-];
-
-export const whyCards = [
+// Projects grouped exactly as laid out in the design.
+export const projectGroups = [
   {
-    tag: "Secure",
-    text: "No complex steps — just smooth, secure and fast experiences.",
-    tone: "from-neutral-400 to-neutral-700",
+    heading: "Good ideas deserve",
+    accent: "great branding",
+    sub: "We co-create brands with founders who think beyond the ordinary.",
+    projects: [
+      {
+        name: "From Mani",
+        tags: ["Brand Strategy", "Brand Identity", "Packaging Design"],
+      },
+      {
+        name: "Spice Cabinet",
+        tags: ["Brand Strategy", "Brand Identity", "Packaging Design"],
+      },
+      {
+        name: "Wild Cup Coffee Roasters",
+        tags: [
+          "Brand Strategy",
+          "Brand Identity",
+          "Packaging Design",
+          "Social Media",
+        ],
+      },
+    ],
   },
   {
-    tag: "Smart",
-    text: "Smart choices and simple steps that lead to better products.",
-    tone: "from-neutral-500 to-neutral-800",
+    heading: "We take what's familiar and make it",
+    accent: "unforgettable",
+    sub: "A thoughtful refresh can change everything.",
+    projects: [
+      {
+        name: "Burghar",
+        tags: ["Brand Identity", "Packaging Design", "Menu Design"],
+      },
+      {
+        name: "Lush House",
+        tags: ["Brand Strategy", "Brand Identity", "Packaging Design"],
+      },
+      { name: "Wahid Marketing", tags: ["Brand Identity", "Instore Design"] },
+    ],
   },
   {
-    tag: "Instant",
-    text: "No complicated process — seamless delivery from day one.",
-    tone: "from-neutral-300 to-neutral-600",
-  },
-  {
-    tag: "Global",
-    text: "Works anywhere, anytime — built for a connected world.",
-    tone: "from-neutral-600 to-neutral-900",
+    heading: "From “Who's that?” to",
+    accent: "“I know this brand.”",
+    sub: "We make your brand impossible to scroll past.",
+    projects: [
+      {
+        name: "Adorn Silver",
+        tags: ["Brand Strategy", "Social Campaigns", "Product Photography"],
+      },
+      { name: "303 Coffee", tags: ["Social Campaigns", "Brand Strategy"] },
+      {
+        name: "R. Mayur Kala",
+        tags: ["Brand Strategy", "Social Campaigns", "Product Photography"],
+      },
+    ],
   },
 ];
 
@@ -109,51 +137,49 @@ export const testimonials = [
     quote:
       "Working together was a genuine pleasure — our vision became a digital experience beyond what we imagined.",
     name: "Client Name",
-    role: "CEO",
+    role: "designation",
   },
   {
     quote:
-      "Remarkable attention to detail and creativity. Our website finally looks the way our brand deserves.",
+      "Working together was a genuine pleasure — our vision became a digital experience beyond what we imagined.",
     name: "Client Name",
-    role: "CTO",
-  },
-  {
-    quote:
-      "They understood our brand instantly and turned it into a site that wins us clients every week.",
-    name: "Client Name",
-    role: "Founder",
-  },
-  {
-    quote:
-      "Fast, thoughtful, and invested in our success from kickoff to launch. We keep coming back.",
-    name: "Client Name",
-    role: "Marketing Lead",
+    role: "designation",
   },
 ];
 
-export const achievements = [
-  { year: "2021", title: "Prism", award: "Best Website Designer" },
-  { year: "2022", title: "Square", award: "Site of the Month" },
-  { year: "2024", title: "VisiCraft", award: "Excellence in Interaction" },
+// Wordmarks stand in for client logos — swap for real SVGs.
+export const clientLogos = [
+  "Bica",
+  "Nine Eight",
+  "White Tiger",
+  "Aeromist",
+  "Innerhood",
+  "Emrld",
+  "Saaqi",
+  "Bonte",
 ];
 
-export const footerColumns = [
-  {
-    heading: "Quick links",
-    links: ["Home", "Contact", "Blog", "404"],
-  },
-  {
-    heading: "Essential",
-    links: ["About me", "Service", "Portfolio", "Let's talk"],
-  },
-  {
-    heading: "Services",
-    links: [
-      "Brand Identity",
-      "Brand Strategy",
-      "Packaging Design",
-      "Brand Marketing",
-      "UI/UX Design",
-    ],
-  },
-];
+export const contact = {
+  heading: "Let's Talk",
+  sub: "Have a project you'd like our eyes on? Tell us more.",
+  bell: "Ring Our Bell",
+};
+
+export const about = {
+  heading: "Designing brands with heart, soul & a hint of chaos.",
+  paragraphs: [
+    "Artistically Yours began with two people who believed good brands deserve more than good design.",
+    "Kajal sees the world through colour, composition, and endless “what if's.” She's the creative force behind every identity we build, obsessing over the tiny details that make brands feel unforgettable.",
+    "Shreyans is the calm to Kajal's creative chaos. While ideas fly around the studio, he keeps everything moving, from operations and strategy to social media, making sure every project reaches the finish line beautifully.",
+    "Together, we believe branding isn't just about looking good. It's about making people feel something.",
+    "And then there's Zeppelin, or Zepu as everyone calls him. Our resident supervisor, occasional keyboard sitter, and the inspiration behind our mascot. If you've spotted a little cat around our brand, now you know why.",
+    "We run on coffee, curiosity, honest conversations, and the excitement of building brands that people remember long after the first hello. Because at the end of the day, we're not just designing identities. We're helping people fall in love with their own businesses again.",
+  ],
+};
+
+export const success = {
+  heading: "Success,",
+  headingLine2: "to us, is simple.",
+  body: "It's when people can't stop talking about your brand. Because we know the answer isn't luck. It's thoughtful strategy, meaningful design, and a team that cared about your business as much as you do.",
+  closing: "After all, that's what being Artistically Yours means.",
+};

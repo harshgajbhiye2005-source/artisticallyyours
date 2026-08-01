@@ -2,42 +2,47 @@
 
 import { useState } from "react";
 import Reveal from "@/components/Reveal";
+import { contact, site } from "@/lib/content";
+import CatMascot from "@/components/CatMascot";
 
 const fields = [
-  { label: "Name*", type: "text", placeholder: "Jane Smith", required: true },
-  { label: "Email*", type: "email", placeholder: "jane@example.com", required: true },
-  { label: "Phone number *", type: "tel", placeholder: "+91", required: true },
-  { label: "Where from? *", type: "text", placeholder: "Company / Organization", required: true },
+  { label: "first name", type: "text", required: true },
+  { label: "last name", type: "text", required: true },
+  { label: "company name", type: "text", required: false },
+  { label: "email", type: "email", required: true },
+  { label: "phone number", type: "tel", required: true },
 ];
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
 
   return (
-    <section id="contact" className="mx-auto max-w-[95rem] px-5 py-32 sm:px-12">
-      <Reveal className="text-center">
-        <h2 className="display mx-auto max-w-5xl text-[clamp(2.4rem,8.3vw,7.5rem)]">
-          Crafting digital
-          <br />
-          brand stories
-        </h2>
-      </Reveal>
-
-      <div className="mt-24 grid gap-16 lg:grid-cols-[1.1fr_1fr]">
+    <section id="contact" className="bg-green py-20 text-white">
+      <div className="mx-auto max-w-[76rem] px-5 sm:px-10">
         <Reveal>
+          <div className="flex items-center gap-4">
+            <CatMascot className="h-16 w-16 shrink-0" stroke="#ffffff" />
+            <div>
+              <h2 className="heading text-[clamp(1.8rem,4vw,2.8rem)]">
+                {contact.heading}
+              </h2>
+              <p className="mt-1 text-sm text-white/90">{contact.sub}</p>
+            </div>
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.12}>
           {sent ? (
-            <div className="flex min-h-72 items-center justify-center border border-line p-8 text-center">
-              <div>
-                <p className="display text-2xl">Thanks — request noted!</p>
-                <p className="mt-4 text-muted">
-                  This is a demo form. Wire it to email or a form service
-                  before launch.
-                </p>
-              </div>
+            <div className="mt-12 border border-white/40 p-10 text-center">
+              <p className="heading text-2xl">Thanks — message received!</p>
+              <p className="mt-3 text-white/80">
+                This is a demo form. Wire it to email or a form service before
+                launch.
+              </p>
             </div>
           ) : (
             <form
-              className="grid gap-12 sm:grid-cols-2"
+              className="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2"
               onSubmit={(e) => {
                 e.preventDefault();
                 setSent(true);
@@ -45,46 +50,86 @@ export default function Contact() {
             >
               {fields.map((field) => (
                 <label key={field.label} className="block">
-                  <span className="display block text-lg sm:text-xl">
+                  <span className="block text-sm text-white/90">
                     {field.label}
                   </span>
                   <input
                     required={field.required}
                     type={field.type}
-                    placeholder={field.placeholder}
-                    className="mt-5 w-full border-b border-line bg-transparent pb-3 text-base outline-none transition-colors placeholder:text-muted/60 focus:border-foreground"
+                    className="mt-2 w-full border-b border-white/60 bg-transparent pb-2 text-base outline-none transition-colors focus:border-white"
                   />
                 </label>
               ))}
+
               <label className="block sm:col-span-2">
-                <span className="display block text-lg sm:text-xl">
-                  About your project
-                </span>
+                <span className="block text-sm text-white/90">your message</span>
                 <textarea
-                  rows={4}
-                  placeholder="What you'd like to create..."
-                  className="mt-5 w-full resize-none border-b border-line bg-transparent pb-3 text-base outline-none transition-colors placeholder:text-muted/60 focus:border-foreground"
+                  rows={2}
+                  className="mt-2 w-full resize-none border-b border-white/60 bg-transparent pb-2 text-base outline-none transition-colors focus:border-white"
                 />
               </label>
-              <div>
+
+              {/* Footer bar: contact details + submit */}
+              <div className="mt-6 flex flex-col gap-6 sm:col-span-2 sm:flex-row sm:items-end sm:justify-between">
+                <div className="flex items-end gap-4">
+                  <span
+                    aria-hidden
+                    className="heading text-3xl leading-none tracking-tight"
+                  >
+                    AY
+                  </span>
+                  <div>
+                    <p className="text-sm font-medium">{contact.bell}</p>
+                    <div className="mt-1 flex gap-4 text-sm">
+                      {site.socials.map((s) => (
+                        <a
+                          key={s.label}
+                          href={s.href}
+                          className="text-white/80 transition-colors hover:text-white"
+                        >
+                          {s.label}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="hidden text-sm sm:block">
+                    <a
+                      href={`mailto:${site.email}`}
+                      className="block text-white/90 transition-colors hover:text-white"
+                    >
+                      {site.email}
+                    </a>
+                    <a
+                      href={`tel:${site.phone.replace(/\s/g, "")}`}
+                      className="block text-white/90 transition-colors hover:text-white"
+                    >
+                      {site.phone}
+                    </a>
+                  </div>
+                </div>
+
                 <button
                   type="submit"
-                  className="group bg-foreground px-8 py-5 text-sm font-semibold uppercase tracking-tight text-white transition-transform duration-300 hover:scale-[1.03]"
+                  className="self-start bg-white px-10 py-3 text-sm font-medium text-green transition-transform duration-300 hover:scale-105 sm:self-auto"
                 >
-                  [ Send a request ]
+                  submit
                 </button>
+              </div>
+
+              {/* Contact details on mobile */}
+              <div className="text-sm sm:col-span-2 sm:hidden">
+                <a href={`mailto:${site.email}`} className="block text-white/90">
+                  {site.email}
+                </a>
+                <a
+                  href={`tel:${site.phone.replace(/\s/g, "")}`}
+                  className="block text-white/90"
+                >
+                  {site.phone}
+                </a>
               </div>
             </form>
           )}
-        </Reveal>
-
-        {/* Photo placeholder — swap for a real B&W image */}
-        <Reveal delay={0.15}>
-          <div className="relative aspect-[4/5] w-full bg-gradient-to-br from-neutral-200 via-neutral-500 to-neutral-900 grayscale">
-            <span className="absolute inset-x-0 bottom-6 text-center text-xs font-semibold uppercase tracking-widest text-white/70">
-              Image placeholder
-            </span>
-          </div>
         </Reveal>
       </div>
     </section>

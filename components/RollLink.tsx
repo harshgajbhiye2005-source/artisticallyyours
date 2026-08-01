@@ -1,28 +1,29 @@
 "use client";
 
 /**
- * Bracketed link with the signature text-roll hover: the label slides up
+ * Braced link with the signature text-roll hover: the label slides up
  * and an identical copy rolls in from below.
  */
 export default function RollLink({
   label,
   href,
   className = "",
-  invert = false,
+  bracket = "curly",
 }: {
   label: string;
   href: string;
   className?: string;
-  invert?: boolean;
+  bracket?: "curly" | "square" | "none";
 }) {
+  const [open, close] =
+    bracket === "curly" ? ["{", "}"] : bracket === "square" ? ["[", "]"] : ["", ""];
+
   return (
     <a
       href={href}
-      className={`group inline-flex items-baseline gap-1.5 text-sm font-semibold uppercase tracking-tight ${
-        invert ? "text-white" : "text-foreground"
-      } ${className}`}
+      className={`group inline-flex items-baseline gap-1 text-sm font-medium uppercase tracking-wide ${className}`}
     >
-      <span aria-hidden>[</span>
+      {open && <span aria-hidden>{open}</span>}
       <span className="relative inline-block overflow-hidden">
         <span className="block transition-transform duration-300 ease-out group-hover:-translate-y-full">
           {label}
@@ -34,7 +35,7 @@ export default function RollLink({
           {label}
         </span>
       </span>
-      <span aria-hidden>]</span>
+      {close && <span aria-hidden>{close}</span>}
     </a>
   );
 }

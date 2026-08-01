@@ -2,49 +2,61 @@
 
 import { motion } from "framer-motion";
 import Reveal from "@/components/Reveal";
-import RollLink from "@/components/RollLink";
-import { projects } from "@/lib/content";
+import { projectGroups } from "@/lib/content";
 
 export default function Work() {
   return (
-    <section id="work" className="mx-auto max-w-[95rem] px-5 py-32 sm:px-12">
-      <Reveal>
-        <h2 className="display text-[clamp(2.6rem,8.3vw,7.5rem)]">
-          Featured
-          <br />
-          Works
-        </h2>
-      </Reveal>
-
-      <div className="mt-20">
-        {projects.map((project, i) => (
-          <Reveal key={project.title} delay={i * 0.07}>
-            <motion.a
-              href="#contact"
-              whileHover="hover"
-              className="group grid grid-cols-2 items-baseline gap-4 border-t border-line py-9 last:border-b sm:grid-cols-[1.6fr_1fr_1fr]"
-            >
-              <motion.h5
-                variants={{ hover: { x: 16 } }}
-                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                className="display text-xl text-muted transition-colors duration-300 group-hover:text-foreground sm:text-[2rem]"
-              >
-                {project.title}
-              </motion.h5>
-              <span className="text-right text-base text-muted sm:text-center">
-                {project.year}
-              </span>
-              <span className="hidden text-right text-base text-muted sm:block">
-                {project.client}
-              </span>
-            </motion.a>
+    <section id="projects" className="mx-auto max-w-[76rem] px-5 py-24 sm:px-10">
+      {projectGroups.map((group, g) => (
+        <div key={group.accent} className={g > 0 ? "mt-24" : ""}>
+          <Reveal>
+            <h2 className="heading max-w-3xl text-[clamp(1.6rem,3.6vw,2.5rem)]">
+              {group.heading}{" "}
+              <em className="accent text-pink">{group.accent}</em>
+            </h2>
+            <p className="mt-3 text-base text-muted">{group.sub}</p>
           </Reveal>
-        ))}
-      </div>
 
-      <Reveal delay={0.2} className="mt-16 text-center">
-        <RollLink label="More works" href="#contact" />
-      </Reveal>
+          <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {group.projects.map((project, i) => (
+              <Reveal key={project.name} delay={i * 0.1}>
+                <motion.a
+                  href="#contact"
+                  whileHover="hover"
+                  className="group block"
+                >
+                  {/* Image placeholder — matches the empty frames in the design */}
+                  <div className="relative aspect-[4/5] overflow-hidden border border-foreground/70">
+                    <motion.div
+                      variants={{ hover: { scale: 1.04 } }}
+                      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                      className="absolute inset-0 bg-neutral-100"
+                    />
+                    <span className="absolute inset-x-0 bottom-4 text-center text-[0.65rem] uppercase tracking-widest text-muted/70">
+                      Project image
+                    </span>
+                  </div>
+
+                  <h3 className="mt-4 text-sm font-semibold uppercase tracking-wide transition-colors duration-300 group-hover:text-pink">
+                    {project.name}
+                  </h3>
+
+                  <div className="mt-2 flex flex-wrap gap-1.5">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="border border-line px-2 py-1 text-[0.6rem] font-medium uppercase tracking-wide text-muted"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </motion.a>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      ))}
     </section>
   );
 }

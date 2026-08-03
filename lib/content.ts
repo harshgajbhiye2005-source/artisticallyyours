@@ -6,7 +6,7 @@
 export const site = {
   name: "Artistically Yours",
   logoLines: ["artistically", "yours"],
-  email: "info@artisticallyyours.com",
+  email: "artisticallyyours01@gmail.com",
   phone: "+91 9588472910",
   // Add the studio's real profile URLs here. Any entry left as "#" renders as
   // plain text rather than a dead link.
@@ -166,7 +166,7 @@ export const contact = {
   sub: "Have a project you'd like our eyes on? Tell us more.",
   bell: "Ring Our Bell",
   // Paste the free access key from https://web3forms.com (generated with
-  // info@artisticallyyours.com) to start receiving enquiries by email.
+  // artisticallyyours01@gmail.com) to start receiving enquiries by email.
   // While this is empty the form stays in demo mode and sends nothing.
   web3formsKey: "7d519e19-3a4c-4577-a1f8-4e13b6f50835",
 };

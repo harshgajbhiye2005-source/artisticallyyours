@@ -34,9 +34,10 @@ export default function ServicesStack() {
 
       <div className="relative mx-auto max-w-4xl px-5">
         {services.map((service, i) => (
-          /* The bottom padding is the scroll distance a card stays fully
-             readable before the next one slides over it. */
-          <div key={service.title} className="sticky top-[14vh] pb-[16rem] sm:pb-[20rem]">
+          /* This padding is the scroll distance a card stays fully readable
+             before the next slides over it. Too small and the tag row is
+             covered instantly; too large and the cards stop visibly stacking. */
+          <div key={service.title} className="sticky top-[14vh] pb-[7rem] sm:pb-[10rem]">
             <motion.article
               initial={{ opacity: 0, y: 70, rotate: 0 }}
               whileInView={{

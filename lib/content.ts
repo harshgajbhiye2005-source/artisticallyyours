@@ -168,7 +168,7 @@ export const contact = {
   // Paste the free access key from https://web3forms.com (generated with
   // info@artisticallyyours.com) to start receiving enquiries by email.
   // While this is empty the form stays in demo mode and sends nothing.
-  web3formsKey: "",
+  web3formsKey: "7d519e19-3a4c-4577-a1f8-4e13b6f50835",
 };
 
 export const about = {

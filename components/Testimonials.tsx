@@ -29,7 +29,7 @@ export default function Testimonials() {
                   {/* Avatar placeholder */}
                   <span className="block h-14 w-14 shrink-0 rounded-full bg-white" />
                   <span>
-                    <span className="block text-sm font-semibold uppercase tracking-wide">
+                    <span className="block text-sm font-medium uppercase tracking-wide">
                       {t.name}
                     </span>
                     <span className="block text-sm text-white/70">

@@ -37,7 +37,7 @@ export default function Work() {
                     </span>
                   </div>
 
-                  <h3 className="mt-4 text-sm font-semibold uppercase tracking-wide transition-colors duration-300 group-hover:text-pink">
+                  <h3 className="mt-4 text-sm font-medium uppercase tracking-wide transition-colors duration-300 group-hover:text-pink">
                     {project.name}
                   </h3>
 

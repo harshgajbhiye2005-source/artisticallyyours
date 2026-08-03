@@ -32,6 +32,8 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-poppins), Arial, Helvetica, sans-serif;
+  /* Poppins Medium is the brand weight across the site */
+  font-weight: 500;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -49,9 +51,9 @@ body {
   letter-spacing: -0.01em;
 }
 
-/* Section headings */
+/* Section headings — brand weight is Poppins Medium */
 .heading {
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: -0.03em;
   line-height: 1.08;
 }

@@ -47,14 +47,6 @@ export const services = [
     ],
   },
   {
-    // NOTE: not shown as a card in the design PDF — kept per earlier
-    // instruction to list five services. Remove if the designer intended four.
-    title: "Brand Strategy",
-    lead: "Before anything looks good, it has to mean something.",
-    body: "We dig into who you are, who you're for, and why it matters — then turn that into positioning and messaging every other decision can stand on.",
-    tags: ["Research", "Positioning", "Messaging", "Naming", "Brand Voice"],
-  },
-  {
     title: "Packaging",
     lead: "We try to hit three core principles when it comes to packaging design:",
     bullets: ["Built with purpose", "Designed to connect", "Made to last"],
@@ -64,7 +56,7 @@ export const services = [
     title: "Socials",
     lead: "Your audience is already scrolling.",
     body: "We make sure they stop, notice, and remember your brand.",
-    tags: ["Concepts Unique To You", "Reels", "Design Posts"],
+    tags: ["Concepts", "Unique To You", "Reels", "Design Posts"],
   },
   {
     title: "UI/UX Design",

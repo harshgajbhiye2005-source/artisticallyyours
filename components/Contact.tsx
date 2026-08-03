@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Reveal from "@/components/Reveal";
 import { contact, site } from "@/lib/content";
+import { asset } from "@/lib/asset";
 import Image from "next/image";
 
 const fields = [
@@ -58,7 +59,7 @@ export default function Contact() {
         <Reveal>
           <div className="flex items-center gap-4">
             <Image
-              src="/mascot.png"
+              src={asset("/mascot.png")}
               alt="Zepu, the studio cat"
               width={1225}
               height={1567}

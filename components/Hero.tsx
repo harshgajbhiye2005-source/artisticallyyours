@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { hero } from "@/lib/content";
+import { asset } from "@/lib/asset";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -22,7 +23,7 @@ export default function Hero() {
           className="mx-auto w-56 sm:w-72 md:mx-0"
         >
           <Image
-            src="/mascot-stamp.png"
+            src={asset("/mascot-stamp.png")}
             alt="Zepu, the Artistically Yours studio cat, on a postage stamp"
             width={1314}
             height={1654}

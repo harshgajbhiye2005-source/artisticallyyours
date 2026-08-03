@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { hero } from "@/lib/content";
-import CatMascot from "@/components/CatMascot";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -13,16 +13,22 @@ export default function Hero() {
       className="px-5 pb-20 pt-32 sm:px-10 sm:pb-28 sm:pt-40 lg:pt-44"
     >
       <div className="mx-auto grid max-w-[76rem] items-center gap-10 md:grid-cols-[minmax(0,320px)_1fr] md:gap-16">
-        {/* Mascot in a postage-stamp frame */}
+        {/* Studio mascot — the artwork already includes the stamp frame,
+            with the scalloped edge cut out as transparency. */}
         <motion.div
           initial={{ opacity: 0, scale: 0.94, rotate: -3 }}
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
           transition={{ duration: 0.9, delay: 0.15, ease }}
-          className="stamp mx-auto w-56 sm:w-72 md:mx-0"
+          className="mx-auto w-56 sm:w-72 md:mx-0"
         >
-          <div className="flex aspect-square items-center justify-center bg-blue">
-            <CatMascot className="h-4/5 w-4/5" stroke="#ffffff" />
-          </div>
+          <Image
+            src="/mascot-stamp.png"
+            alt="Zepu, the Artistically Yours studio cat, on a postage stamp"
+            width={1314}
+            height={1654}
+            priority
+            className="h-auto w-full"
+          />
         </motion.div>
 
         {/* Headline */}

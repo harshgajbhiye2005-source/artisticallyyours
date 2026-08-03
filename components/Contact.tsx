@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Reveal from "@/components/Reveal";
 import { contact, site } from "@/lib/content";
-import CatMascot from "@/components/CatMascot";
+import Image from "next/image";
 
 const fields = [
   { label: "first name", name: "first_name", type: "text", required: true },
@@ -57,7 +57,13 @@ export default function Contact() {
       <div className="mx-auto max-w-[76rem] px-5 sm:px-10">
         <Reveal>
           <div className="flex items-center gap-4">
-            <CatMascot className="h-16 w-16 shrink-0" stroke="#ffffff" />
+            <Image
+              src="/mascot.png"
+              alt="Zepu, the studio cat"
+              width={1225}
+              height={1567}
+              className="h-20 w-auto shrink-0"
+            />
             <div>
               <h2 className="heading text-[clamp(1.8rem,4vw,2.8rem)]">
                 {contact.heading}

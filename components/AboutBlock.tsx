@@ -2,7 +2,7 @@
 
 import Reveal from "@/components/Reveal";
 import { about, success } from "@/lib/content";
-import CatMascot from "@/components/CatMascot";
+import Image from "next/image";
 
 export default function AboutBlock() {
   return (
@@ -49,7 +49,13 @@ export default function AboutBlock() {
       <section className="px-5 py-24 sm:px-10">
         <div className="mx-auto flex max-w-[76rem] flex-col gap-10 md:flex-row md:items-start md:gap-16">
           <Reveal className="shrink-0">
-            <CatMascot className="h-32 w-32" stroke="#141414" />
+            <Image
+              src="/mascot.png"
+              alt="Zepu, the studio cat"
+              width={1225}
+              height={1567}
+              className="h-36 w-auto"
+            />
           </Reveal>
 
           <Reveal delay={0.1}>

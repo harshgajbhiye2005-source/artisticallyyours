@@ -32,11 +32,15 @@ export const hero = {
 // Big ghost word behind the services stack
 export const servicesGhost = "artistically yours";
 
+// `lines` are rendered one per line, matching the line breaks in the design.
 export const services = [
   {
     title: "Brand Identity",
-    lead: "Your visuals set the vibe before you ever say hello.",
-    body: "They should feel like you, not just look good. We believe every element should have a purpose, because the best brands are built with intention, not decoration.",
+    lines: [
+      "Your visuals set the vibe before you ever say hello.",
+      "They should feel like you, not just look good.",
+      "We believe every element should have a purpose, because the best brands are built with intention, not decoration.",
+    ],
     tags: [
       "Logo Kit",
       "Colour Palette",
@@ -48,20 +52,26 @@ export const services = [
   },
   {
     title: "Packaging",
-    lead: "We try to hit three core principles when it comes to packaging design:",
+    lines: [
+      "We try to hit three core principles when it comes to packaging design:",
+    ],
     bullets: ["Built with purpose", "Designed to connect", "Made to last"],
     tags: ["Concepts", "Dieline Design", "Illustrated Artwork"],
   },
   {
     title: "Socials",
-    lead: "Your audience is already scrolling.",
-    body: "We make sure they stop, notice, and remember your brand.",
+    lines: [
+      "Your audience is already scrolling.",
+      "We make sure they stop, notice, and remember your brand.",
+    ],
     tags: ["Concepts", "Unique To You", "Reels", "Design Posts"],
   },
   {
     title: "UI/UX Design",
-    lead: "Design isn't just how it looks.",
-    body: "It's how it works, how it feels, and how effortlessly people move through it.",
+    lines: [
+      "Design isn't just how it looks.",
+      "It's how it works, how it feels, and how effortlessly people move through it.",
+    ],
     tags: ["Website", "Experience", "UI/UX"],
   },
 ];

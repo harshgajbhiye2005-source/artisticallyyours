@@ -32,9 +32,11 @@ export default function ServicesStack() {
         </div>
       </div>
 
-      <div className="relative mx-auto max-w-2xl px-5">
+      <div className="relative mx-auto max-w-4xl px-5">
         {services.map((service, i) => (
-          <div key={service.title} className="sticky top-[18vh] pb-14">
+          /* The bottom padding is the scroll distance a card stays fully
+             readable before the next one slides over it. */
+          <div key={service.title} className="sticky top-[14vh] pb-[16rem] sm:pb-[20rem]">
             <motion.article
               initial={{ opacity: 0, y: 70, rotate: 0 }}
               whileInView={{
@@ -44,42 +46,42 @@ export default function ServicesStack() {
               }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-              className="bg-white p-7 shadow-[0_20px_60px_rgba(0,0,0,0.18)] sm:p-10"
+              /* Title pinned top, copy and tags anchored bottom — the wide
+                 open middle is deliberate, as in the design. */
+              className="flex min-h-[24rem] flex-col justify-between bg-white p-8 shadow-[0_20px_60px_rgba(0,0,0,0.18)] sm:min-h-[30rem] sm:p-12"
             >
-              <h3 className="heading text-xl uppercase sm:text-2xl">
+              <h3 className="heading text-2xl uppercase sm:text-4xl">
                 {service.title}
               </h3>
 
-              <p className="mt-6 text-base font-medium leading-relaxed">
-                {service.lead}
-              </p>
-
-              {service.body && (
-                <p className="mt-2 text-base leading-relaxed text-muted">
-                  {service.body}
-                </p>
-              )}
-
-              {service.bullets && (
-                <ul className="mt-3 space-y-1 text-base text-muted">
-                  {service.bullets.map((b) => (
-                    <li key={b} className="flex gap-2">
-                      <span aria-hidden>•</span>
-                      {b}
-                    </li>
-                  ))}
-                </ul>
-              )}
-
-              <div className="mt-7 flex flex-wrap gap-2">
-                {service.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full border border-line px-3.5 py-1.5 text-[0.7rem] font-medium uppercase tracking-wide"
-                  >
-                    {tag}
-                  </span>
+              <div className="mt-16">
+                {service.lines.map((line) => (
+                  <p key={line} className="text-base leading-relaxed sm:text-lg">
+                    {line}
+                  </p>
                 ))}
+
+                {service.bullets && (
+                  <ul className="mt-1 space-y-1 text-base leading-relaxed sm:text-lg">
+                    {service.bullets.map((b) => (
+                      <li key={b} className="flex gap-2">
+                        <span aria-hidden>•</span>
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                <div className="mt-7 flex flex-wrap gap-2.5">
+                  {service.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-lg border border-line px-3.5 py-1.5 text-xs uppercase tracking-wide sm:text-sm"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </motion.article>
           </div>

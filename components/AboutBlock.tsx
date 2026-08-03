@@ -12,7 +12,7 @@ export default function AboutBlock() {
         <div className="mx-auto grid max-w-[76rem] gap-12 lg:grid-cols-[minmax(0,420px)_1fr] lg:gap-16">
           <Reveal>
             {/* Team photo placeholder */}
-            <div className="flex aspect-[4/5] items-center justify-center bg-white/85">
+            <div className="flex aspect-[4/5] items-center justify-center bg-neutral-300">
               <span className="text-xs uppercase tracking-widest text-foreground/50">
                 Team photo
               </span>
@@ -20,14 +20,25 @@ export default function AboutBlock() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <h1 className="heading max-w-xl text-[clamp(1.8rem,4vw,2.8rem)]">
-              {about.heading}
+            <h1 className="heading max-w-3xl text-[clamp(1.7rem,3.4vw,2.5rem)]">
+              {about.headingLines.map((line) => (
+                <span key={line} className="block">
+                  {line}
+                </span>
+              ))}
             </h1>
-            <div className="mt-8 space-y-4">
-              {about.paragraphs.map((p, i) => (
-                <p key={i} className="text-base leading-relaxed text-white/95">
-                  {p}
-                </p>
+            <div className="mt-8 space-y-6">
+              {about.paragraphs.map((group, i) => (
+                <div key={i}>
+                  {group.map((line) => (
+                    <p
+                      key={line}
+                      className="text-base leading-relaxed text-white/95"
+                    >
+                      {line}
+                    </p>
+                  ))}
+                </div>
               ))}
             </div>
           </Reveal>
@@ -43,16 +54,21 @@ export default function AboutBlock() {
 
           <Reveal delay={0.1}>
             <h2 className="heading text-[clamp(1.6rem,3.6vw,2.4rem)]">
-              {success.heading}
-              <br />
+              <span className="accent block">{success.headingAccent}</span>
               {success.headingLine2}
             </h2>
-            <p className="mt-6 max-w-3xl text-base leading-relaxed text-muted">
-              {success.body}
-            </p>
-            <p className="mt-4 max-w-3xl text-base leading-relaxed">
-              {success.closing}
-            </p>
+            <div className="mt-6 max-w-4xl">
+              {success.lines.map((line) => (
+                <p key={line} className="text-base leading-relaxed">
+                  {line}
+                </p>
+              ))}
+              <p className="text-base leading-relaxed">
+                {success.closingBefore}
+                <em className="accent">{success.closingAccent}</em>
+                {success.closingAfter}
+              </p>
+            </div>
           </Reveal>
         </div>
       </section>

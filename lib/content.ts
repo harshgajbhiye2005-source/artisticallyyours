@@ -174,20 +174,38 @@ export const contact = {
 };
 
 export const about = {
-  heading: "Designing brands with heart, soul & a hint of chaos.",
+  headingLines: ["Designing brands with heart, soul", "& a hint of chaos."],
+  // Each group is a spaced paragraph; entries inside a group sit on their own
+  // line with no gap, matching the breaks in the design.
   paragraphs: [
-    "Artistically Yours began with two people who believed good brands deserve more than good design.",
-    "Kajal sees the world through colour, composition, and endless “what if's.” She's the creative force behind every identity we build, obsessing over the tiny details that make brands feel unforgettable.",
-    "Shreyans is the calm to Kajal's creative chaos. While ideas fly around the studio, he keeps everything moving, from operations and strategy to social media, making sure every project reaches the finish line beautifully.",
-    "Together, we believe branding isn't just about looking good. It's about making people feel something.",
-    "And then there's Zeppelin, or Zepu as everyone calls him. Our resident supervisor, occasional keyboard sitter, and the inspiration behind our mascot. If you've spotted a little cat around our brand, now you know why.",
-    "We run on coffee, curiosity, honest conversations, and the excitement of building brands that people remember long after the first hello. Because at the end of the day, we're not just designing identities. We're helping people fall in love with their own businesses again.",
+    [
+      "Artistically Yours began with two people who believed good brands deserve more than good design.",
+    ],
+    [
+      "Kajal sees the world through colour, composition, and endless “what if's.” She's the creative force behind every identity we build, obsessing over the tiny details that make brands feel unforgettable.",
+    ],
+    [
+      "Shreyans is the calm to Kajal's creative chaos. While ideas fly around the studio, he keeps everything moving, from operations and strategy to social media, making sure every project reaches the finish line beautifully.",
+      "Together, we believe branding isn't just about looking good. It's about making people feel something.",
+    ],
+    [
+      "And then there's Zeppelin, or Zepu as everyone calls him. Our resident supervisor, occasional keyboard sitter, and the inspiration behind our mascot. If you've spotted a little cat around our brand, now you know why.",
+    ],
+    [
+      "We run on coffee, curiosity, honest conversations, and the excitement of building brands that people remember long after the first hello. Because at the end of the day, we're not just designing identities. We're helping people fall in love with their own businesses again.",
+    ],
   ],
 };
 
 export const success = {
-  heading: "Success,",
+  // "Success," is set in the italic accent face, as in the design.
+  headingAccent: "Success,",
   headingLine2: "to us, is simple.",
-  body: "It's when people can't stop talking about your brand. Because we know the answer isn't luck. It's thoughtful strategy, meaningful design, and a team that cared about your business as much as you do.",
-  closing: "After all, that's what being Artistically Yours means.",
+  lines: [
+    "It's when people can't stop talking about your brand. Because we know the answer isn't luck.",
+    "It's thoughtful strategy, meaningful design, and a team that cared about your business as much as you do.",
+  ],
+  closingBefore: "After all, that's what being ",
+  closingAccent: "Artistically Yours",
+  closingAfter: " means.",
 };

@@ -8,11 +8,13 @@ export const site = {
   logoLines: ["artistically", "yours"],
   email: "artisticallyyours01@gmail.com",
   phone: "+91 9588472910",
-  // Add the studio's real profile URLs here. Any entry left as "#" renders as
-  // plain text rather than a dead link.
+  // Any entry left as "#" renders as plain text rather than a dead link.
   socials: [
-    { label: "instagram", href: "#" },
-    { label: "linkedin", href: "#" },
+    { label: "instagram", href: "https://www.instagram.com/artisticallyyours" },
+    {
+      label: "linkedin",
+      href: "https://www.linkedin.com/company/artisticallyyours/",
+    },
   ],
 };
 

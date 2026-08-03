@@ -8,6 +8,8 @@ export const site = {
   logoLines: ["artistically", "yours"],
   email: "info@artisticallyyours.com",
   phone: "+91 9588472910",
+  // Add the studio's real profile URLs here. Any entry left as "#" renders as
+  // plain text rather than a dead link.
   socials: [
     { label: "instagram", href: "#" },
     { label: "linkedin", href: "#" },
@@ -163,6 +165,10 @@ export const contact = {
   heading: "Let's Talk",
   sub: "Have a project you'd like our eyes on? Tell us more.",
   bell: "Ring Our Bell",
+  // Paste the free access key from https://web3forms.com (generated with
+  // info@artisticallyyours.com) to start receiving enquiries by email.
+  // While this is empty the form stays in demo mode and sends nothing.
+  web3formsKey: "",
 };
 
 export const about = {

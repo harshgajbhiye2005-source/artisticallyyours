@@ -4,6 +4,7 @@ import { useState } from "react";
 import Reveal from "@/components/Reveal";
 import { contact, site } from "@/lib/content";
 import { asset } from "@/lib/asset";
+import SocialIcon from "@/components/SocialIcon";
 import Image from "next/image";
 
 const fields = [
@@ -135,21 +136,24 @@ export default function Contact() {
                   />
                   <div>
                     <p className="text-sm font-medium">{contact.bell}</p>
-                    <div className="mt-1 flex gap-4 text-sm">
+                    <div className="mt-1.5 flex items-center gap-3">
                       {site.socials.map((s) =>
                         s.href === "#" ? (
-                          <span key={s.label} className="text-white/80">
-                            {s.label}
-                          </span>
+                          <SocialIcon
+                            key={s.label}
+                            name={s.label}
+                            className="h-5 w-5 text-white/60"
+                          />
                         ) : (
                           <a
                             key={s.label}
                             href={s.href}
                             target="_blank"
                             rel="noopener noreferrer"
+                            aria-label={s.label}
                             className="text-white/80 transition-colors hover:text-white"
                           >
-                            {s.label}
+                            <SocialIcon name={s.label} className="h-5 w-5" />
                           </a>
                         ),
                       )}

@@ -35,7 +35,9 @@ body {
   /* Poppins Medium is the brand weight across the site */
   font-weight: 500;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  /* `clip`, not `hidden`: hidden makes the body a scroll container and
+     silently disables position:sticky further down the tree. */
+  overflow-x: clip;
 }
 
 ::selection {
@@ -43,12 +45,13 @@ body {
   color: #fff;
 }
 
-/* Italic serif accent used on headline words */
+/* Accent words. The whole site is set in one face — the accent is carried
+   by colour alone, not by a second typeface. */
 .accent {
-  font-family: var(--font-instrument-serif), Georgia, serif;
-  font-style: italic;
-  font-weight: 400;
-  letter-spacing: -0.01em;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: inherit;
+  letter-spacing: inherit;
 }
 
 /* Section headings — brand weight is Poppins Medium */

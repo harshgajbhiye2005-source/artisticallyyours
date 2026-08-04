@@ -1,18 +1,22 @@
 "use client";
 
+import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import { testimonials } from "@/lib/content";
+import { asset } from "@/lib/asset";
 
 export default function Testimonials() {
   return (
     <section className="relative overflow-hidden bg-blue py-24 text-white">
-      {/* Oversized ghost initials, as in the design */}
-      <span
+      {/* Oversized ghost monogram, as in the design */}
+      <Image
+        src={asset("/ay-mark.png")}
+        alt=""
         aria-hidden
-        className="heading pointer-events-none absolute right-6 top-1/2 hidden -translate-y-1/2 select-none text-[22rem] leading-none text-white/10 lg:block"
-      >
-        AY
-      </span>
+        width={1141}
+        height={801}
+        className="pointer-events-none absolute right-4 top-1/2 hidden w-[32rem] -translate-y-1/2 select-none opacity-10 lg:block"
+      />
 
       <div className="relative mx-auto max-w-[76rem] px-5 sm:px-10">
         <Reveal>

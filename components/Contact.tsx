@@ -125,12 +125,14 @@ export default function Contact() {
               {/* Footer bar: contact details + submit */}
               <div className="mt-6 flex flex-col gap-6 sm:col-span-2 sm:flex-row sm:items-end sm:justify-between">
                 <div className="flex items-end gap-4">
-                  <span
+                  <Image
+                    src={asset("/ay-mark.png")}
+                    alt=""
                     aria-hidden
-                    className="heading text-3xl leading-none tracking-tight"
-                  >
-                    AY
-                  </span>
+                    width={1141}
+                    height={801}
+                    className="h-8 w-auto shrink-0"
+                  />
                   <div>
                     <p className="text-sm font-medium">{contact.bell}</p>
                     <div className="mt-1 flex gap-4 text-sm">

@@ -52,7 +52,7 @@ export default function Hero() {
                 animate={{ y: "0%" }}
                 transition={{ duration: 1, delay: 0.45, ease }}
               >
-                <em className="accent text-pink">{hero.accent}</em>{" "}
+                <em className="accent">{hero.accent}</em>{" "}
                 {hero.line1End}
               </motion.span>
             </span>

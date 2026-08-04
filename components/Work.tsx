@@ -12,7 +12,7 @@ export default function Work() {
           <Reveal>
             <h2 className="heading max-w-3xl text-[clamp(1.6rem,3.6vw,2.5rem)]">
               {group.heading}{" "}
-              <em className="accent text-pink">{group.accent}</em>
+              <em className="accent">{group.accent}</em>
             </h2>
             <p className="mt-3 text-base text-muted">{group.sub}</p>
           </Reveal>

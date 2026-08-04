@@ -5,7 +5,6 @@
 
 export const site = {
   name: "Artistically Yours",
-  logoLines: ["artistically", "yours"],
   email: "artisticallyyours01@gmail.com",
   phone: "+91 9588472910",
   // Any entry left as "#" renders as plain text rather than a dead link.

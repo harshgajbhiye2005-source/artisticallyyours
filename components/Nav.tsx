@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { nav, site } from "@/lib/content";
+import { asset } from "@/lib/asset";
 import RollLink from "@/components/RollLink";
 
 export default function Nav() {
@@ -30,16 +32,16 @@ export default function Nav() {
       }`}
     >
       <div className="mx-auto flex max-w-[88rem] items-center justify-between px-5 py-4 sm:px-10">
-        {/* Wordmark */}
-        <Link href="/" className="leading-[1.05]">
-          {site.logoLines.map((line) => (
-            <span
-              key={line}
-              className="block text-sm font-medium lowercase tracking-tight sm:text-base"
-            >
-              {line}
-            </span>
-          ))}
+        {/* Wordmark — the studio's own lettering, not a system face */}
+        <Link href="/" aria-label={site.name} className="block">
+          <Image
+            src={asset("/wordmark.png")}
+            alt={site.name}
+            width={1178}
+            height={379}
+            priority
+            className="h-8 w-auto sm:h-10"
+          />
         </Link>
 
         <nav className="hidden items-center gap-10 md:flex">

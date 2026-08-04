@@ -16,26 +16,16 @@ export default function ServicesStack() {
   // up. The marquee below clips itself instead.
   return (
     <section id="services" className="relative bg-green py-28">
-      {/* Ghost wordmark — the studio's own lettering, scrolling behind the stack */}
-      <div
+      {/* The wordmark sits across the top of the band as a tone-on-tone
+          watermark, as in the design: black ink at low opacity reads as a
+          deeper shade of the green behind it. */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-16 select-none overflow-hidden opacity-20"
-      >
-        <div
-          className="marquee-track items-center"
-          style={{ "--marquee-duration": "50s" } as React.CSSProperties}
-        >
-          {[0, 1].map((n) => (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              key={n}
-              src={asset("/wordmark-light.png")}
-              alt=""
-              className="h-[clamp(5rem,14vw,13rem)] w-auto max-w-none pr-16"
-            />
-          ))}
-        </div>
-      </div>
+        alt=""
+        src={asset("/wordmark-inline.png")}
+        className="pointer-events-none absolute inset-x-0 top-6 w-full select-none opacity-[0.09] sm:top-10"
+      />
 
       <div className="relative mx-auto max-w-4xl px-5">
         {services.map((service, i) => (

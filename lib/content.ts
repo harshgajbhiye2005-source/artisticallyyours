@@ -45,9 +45,11 @@ export const heroPrompts = [
   {
     id: "meow",
     label: "for Meow",
-    body: "Meow meow, mrrrow meow — meow meow meow, mrow mrow, and meeeow meow purr meow meow meow meow.",
+    // Rendered as a musical stave rather than a paragraph.
+    staff: true,
     sound: "/meow.mp3",
-    soundSeconds: 0.9,
+    // Three meows: the recording has pauses at ~0.8s and ~1.8s.
+    soundSeconds: 3.6,
   },
 ];
 

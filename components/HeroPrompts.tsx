@@ -5,6 +5,7 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { heroPrompts } from "@/lib/content";
 import { asset } from "@/lib/asset";
+import MeowStaff from "@/components/MeowStaff";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -124,22 +125,28 @@ export default function HeroPrompts() {
                 ×
               </button>
 
-              <div className="flex items-start gap-4 pr-8">
-                <Image
-                  src={asset("/mascot.png")}
-                  alt=""
-                  aria-hidden
-                  width={1225}
-                  height={1567}
-                  className="hidden h-20 w-auto shrink-0 sm:block"
-                />
-                <p
-                  id="hero-prompt-text"
-                  className="text-base leading-relaxed sm:text-lg"
-                >
-                  {open.body}
-                </p>
-              </div>
+              {open.staff ? (
+                <div id="hero-prompt-text" className="pr-8">
+                  <MeowStaff />
+                </div>
+              ) : (
+                <div className="flex items-start gap-4 pr-8">
+                  <Image
+                    src={asset("/mascot.png")}
+                    alt=""
+                    aria-hidden
+                    width={1225}
+                    height={1567}
+                    className="hidden h-20 w-auto shrink-0 sm:block"
+                  />
+                  <p
+                    id="hero-prompt-text"
+                    className="text-base leading-relaxed sm:text-lg"
+                  >
+                    {open.body}
+                  </p>
+                </div>
+              )}
             </motion.div>
           </motion.div>
         )}

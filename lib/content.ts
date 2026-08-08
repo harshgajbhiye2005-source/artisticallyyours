@@ -30,6 +30,25 @@ export const hero = {
   line2: "We'll help the world see it.",
 };
 
+/**
+ * The two "press here" buttons under the hero. Each opens a small dialog.
+ * `sound` is played if the matching file exists in /public — drop in
+ * meow.mp3 to give the meow button audio; without it the dialog is silent.
+ */
+export const heroPrompts = [
+  {
+    id: "english",
+    label: "for English",
+    body: "Two creatives, one cat, too much coffee, and a shared obsession with building brands that people love.",
+  },
+  {
+    id: "meow",
+    label: "for Meow",
+    body: "Meow meow, mrrrow meow — meow meow meow, mrow mrow, and meeeow meow purr meow meow meow meow.",
+    sound: "/meow.mp3",
+  },
+];
+
 // Big ghost word behind the services stack
 export const servicesGhost = "artistically yours";
 

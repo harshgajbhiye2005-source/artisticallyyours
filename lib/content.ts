@@ -155,6 +155,8 @@ export const projectGroups: ProjectGroup[] = [
     projects: [
       {
         name: "Burghar",
+        slug: "burghar",
+        image: "/projects/burghar/thumb.jpg",
         tags: ["Brand Identity", "Packaging Design", "Menu Design"],
       },
       {
@@ -296,5 +298,17 @@ export const caseStudies = {
     tags: ["Brand Strategy", "Brand Identity", "Packaging Design", "Social Media"],
     panelCount: 12,
     panelPath: "/projects/wild-cup",
+  },
+  burghar: {
+    name: "BURGHAR",
+    client: "Burghar",
+    location: "",
+    year: "2026",
+    discipline: "Brand Identity",
+    summary:
+      "BURGHAR is not just a burger joint. It's a house of flavour. Built from the wordplay Bur + Ghar (\u0918\u0930), the name itself defines the brand's soul: global burgers, desi heart. A place where big, juicy burgers meet the unapologetic chaos of Indian street food culture. We don't do subtle. We do bold buns, messy sauces, real meat, loud colours and zero tolerance for bland.",
+    tags: ["Brand Identity", "Packaging Design", "Menu Design"],
+    panelCount: 8,
+    panelPath: "/projects/burghar",
   },
 } as const;

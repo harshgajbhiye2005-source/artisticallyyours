@@ -100,8 +100,24 @@ export const services = [
   },
 ];
 
-// Projects grouped exactly as laid out in the design.
-export const projectGroups = [
+// Projects grouped exactly as laid out in the design. A project gets `slug`
+// and `image` once its case study exists; without them the card keeps the
+// placeholder frame and links to the contact section.
+type Project = {
+  name: string;
+  slug?: string;
+  image?: string;
+  tags: string[];
+};
+
+type ProjectGroup = {
+  heading: string;
+  accent: string;
+  sub: string;
+  projects: Project[];
+};
+
+export const projectGroups: ProjectGroup[] = [
   {
     heading: "Good ideas deserve",
     accent: "great branding",
@@ -115,10 +131,14 @@ export const projectGroups = [
       },
       {
         name: "Spice Cabinet",
+        slug: "spice-cabinet",
+        image: "/projects/spice-cabinet/thumb.jpg",
         tags: ["Brand Strategy", "Brand Identity", "Packaging Design"],
       },
       {
         name: "Wild Cup Coffee Roasters",
+        slug: "wild-cup",
+        image: "/projects/wild-cup/thumb.jpg",
         tags: [
           "Brand Strategy",
           "Brand Identity",
@@ -252,5 +272,29 @@ export const caseStudies = {
     tags: ["Brand Strategy", "Brand Identity", "Packaging Design"],
     panelCount: 10,
     panelPath: "/projects/from-mani",
+  },
+  "spice-cabinet": {
+    name: "The Spice Cabinet",
+    client: "The Spice Cabinet",
+    location: "",
+    year: "2025",
+    discipline: "Branding and Packaging Design",
+    summary:
+      "At the heart of The Spice Cabinet lies a story as comforting as a home-cooked meal, a story of a mother and daughter who turned their shared love for authentic Indian flavors into something truly special. Born in the mother's kitchen, every recipe carries with it a pinch of nostalgia, a dash of warmth, and the promise of quality. What started as a collection of homemade spice blends soon grew into a brand built on trust, authenticity, and love — the kind that reminds you of your mom's cooking, no matter where you are.",
+    tags: ["Brand Strategy", "Brand Identity", "Packaging Design"],
+    panelCount: 9,
+    panelPath: "/projects/spice-cabinet",
+  },
+  "wild-cup": {
+    name: "The Wild Cup",
+    client: "The Wild Cup",
+    location: "Nagpur, Maharashtra",
+    year: "2025",
+    discipline: "Brand Identity Design",
+    summary:
+      "At The Wild Cup, we believe that the origin of coffee and the origin of human instinct are deeply intertwined. Both begin in the wild — untamed, raw, and rooted. Our caf\u00e9 and roastery is built on the idea that coffee isn't just a drink, but a way to return to the core of who we are. The Wild Cup invites you to slow down, reconnect, and sip into something primal — a cup that awakens not only your senses but your spirit. We swap the noise for nature.",
+    tags: ["Brand Strategy", "Brand Identity", "Packaging Design", "Social Media"],
+    panelCount: 12,
+    panelPath: "/projects/wild-cup",
   },
 } as const;

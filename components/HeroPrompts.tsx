@@ -80,7 +80,7 @@ export default function HeroPrompts() {
             <button
               type="button"
               onClick={() => handleOpen(p.id, p.sound, p.soundSeconds)}
-              className="mt-2 rounded-full bg-foreground px-7 py-3 text-sm font-medium lowercase text-background transition-transform duration-300 hover:scale-105"
+              className="mt-2 rounded-full bg-foreground px-7 py-3 text-sm font-medium text-background transition-transform duration-300 hover:scale-105"
             >
               {p.label}
             </button>

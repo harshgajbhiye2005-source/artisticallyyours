@@ -109,6 +109,8 @@ export const projectGroups = [
     projects: [
       {
         name: "From Mani",
+        slug: "from-mani",
+        image: "/projects/from-mani/thumb.jpg",
         tags: ["Brand Strategy", "Brand Identity", "Packaging Design"],
       },
       {
@@ -233,3 +235,22 @@ export const success = {
   closingAccent: "Artistically Yours",
   closingAfter: " means.",
 };
+
+/**
+ * Case studies. `panels` are the case-study artwork in order, exported from
+ * the studio's presentation deck and stacked seamlessly on the project page.
+ */
+export const caseStudies = {
+  "from-mani": {
+    name: "FROM MĀNI",
+    client: "Maanavi Homes",
+    location: "Surat",
+    year: "2025",
+    discipline: "Brand Identity Design",
+    summary:
+      "The logo for FROM MĀNI has been designed to embody the brand's essence of refined minimalism, warmth, and timeless luxury. As a curator of meaningful objects for the home, the identity reflects both the intimacy of a personal touch and the sophistication of global design.",
+    tags: ["Brand Strategy", "Brand Identity", "Packaging Design"],
+    panelCount: 10,
+    panelPath: "/projects/from-mani",
+  },
+} as const;

@@ -32,8 +32,9 @@ export const hero = {
 
 /**
  * The two "press here" buttons under the hero. Each opens a small dialog.
- * `sound` is played if the matching file exists in /public — drop in
- * meow.mp3 to give the meow button audio; without it the dialog is silent.
+ * `sound` plays on open and always stops when the dialog closes.
+ * `soundSeconds` clips playback: the source file holds several meows, and
+ * only the first one (roughly 0.7s) is wanted for a button press.
  */
 export const heroPrompts = [
   {
@@ -46,6 +47,7 @@ export const heroPrompts = [
     label: "for Meow",
     body: "Meow meow, mrrrow meow — meow meow meow, mrow mrow, and meeeow meow purr meow meow meow meow.",
     sound: "/meow.mp3",
+    soundSeconds: 0.9,
   },
 ];
 

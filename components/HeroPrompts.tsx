@@ -12,22 +12,53 @@ export default function HeroPrompts() {
   const [openId, setOpenId] = useState<string | null>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const lastFocused = useRef<HTMLElement | null>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const stopTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const open = heroPrompts.find((p) => p.id === openId) ?? null;
 
-  const close = useCallback(() => {
-    setOpenId(null);
-    lastFocused.current?.focus();
+  const stopSound = useCallback(() => {
+    if (stopTimer.current) clearTimeout(stopTimer.current);
+    stopTimer.current = null;
+    const a = audioRef.current;
+    if (a) {
+      a.pause();
+      a.currentTime = 0;
+      audioRef.current = null;
+    }
   }, []);
 
-  function handleOpen(id: string, sound?: string) {
+  const close = useCallback(() => {
+    stopSound();
+    setOpenId(null);
+    lastFocused.current?.focus();
+  }, [stopSound]);
+
+  function handleOpen(id: string, sound?: string, seconds?: number) {
     lastFocused.current = document.activeElement as HTMLElement;
     setOpenId(id);
-    if (sound) {
-      // Optional: silent if the file has not been added yet.
-      const audio = new Audio(asset(sound));
-      audio.play().catch(() => {});
+    if (!sound) return;
+    stopSound();
+    // Silent (not broken) if the audio file is missing or the browser
+    // refuses playback.
+    const audio = new Audio(asset(sound));
+    audioRef.current = audio;
+    audio.play().catch(() => {});
+    if (seconds) {
+      stopTimer.current = setTimeout(() => {
+        // Short fade so the clip does not end on a click.
+        const fade = setInterval(() => {
+          if (audio.volume > 0.1) audio.volume -= 0.1;
+          else {
+            clearInterval(fade);
+            audio.pause();
+          }
+        }, 20);
+      }, seconds * 1000);
     }
   }
+
+  // Never let audio outlive the component.
+  useEffect(() => stopSound, [stopSound]);
 
   useEffect(() => {
     if (!openId) return;
@@ -47,7 +78,7 @@ export default function HeroPrompts() {
             <p className="text-sm text-muted">Press here</p>
             <button
               type="button"
-              onClick={() => handleOpen(p.id, p.sound)}
+              onClick={() => handleOpen(p.id, p.sound, p.soundSeconds)}
               className="mt-2 rounded-full bg-foreground px-7 py-3 text-sm font-medium lowercase text-background transition-transform duration-300 hover:scale-105"
             >
               {p.label}

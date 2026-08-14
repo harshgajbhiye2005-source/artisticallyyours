@@ -160,7 +160,10 @@ export const projectGroups: ProjectGroup[] = [
         tags: ["Brand Identity", "Packaging Design", "Menu Design"],
       },
       {
+        // Artwork only for now — no case study deck yet, so the card links
+        // to the contact section rather than a project page.
         name: "Lush House",
+        image: "/projects/lush-house/thumb.jpg",
         tags: ["Brand Strategy", "Brand Identity", "Packaging Design"],
       },
       { name: "Wahid Marketing", tags: ["Brand Identity", "Instore Design"] },

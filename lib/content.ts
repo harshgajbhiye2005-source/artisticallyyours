@@ -160,9 +160,8 @@ export const projectGroups: ProjectGroup[] = [
         tags: ["Brand Identity", "Packaging Design", "Menu Design"],
       },
       {
-        // Artwork only for now — no case study deck yet, so the card links
-        // to the contact section rather than a project page.
         name: "Lush House",
+        slug: "lush-house",
         image: "/projects/lush-house/thumb.jpg",
         tags: ["Brand Strategy", "Brand Identity", "Packaging Design"],
       },
@@ -313,5 +312,17 @@ export const caseStudies = {
     tags: ["Brand Identity", "Packaging Design", "Menu Design"],
     panelCount: 8,
     panelPath: "/projects/burghar",
+  },
+  "lush-house": {
+    name: "Lush House",
+    client: "Lush House In-between",
+    location: "",
+    year: "2024",
+    discipline: "Brand Identity, Illustrations & Art Direction",
+    summary:
+      "Lush House brings together comforting tastes from across the world, thoughtfully made and gently served. At Lush House, slow living is not an idea, it's a feeling. It lives in unhurried mornings, lingering conversations, and food made with patience and care. This is a space designed to pause, breathe, and be present, where time softens and everyday moments feel gently held.",
+    tags: ["Brand Strategy", "Brand Identity", "Packaging Design"],
+    panelCount: 10,
+    panelPath: "/projects/lush-house",
   },
 } as const;

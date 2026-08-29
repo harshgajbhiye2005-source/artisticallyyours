@@ -175,6 +175,7 @@ export const projectGroups: ProjectGroup[] = [
     projects: [
       {
         name: "Adorn Silver",
+        slug: "adorn-silver",
         tags: ["Brand Strategy", "Social Campaigns", "Product Photography"],
       },
       { name: "303 Coffee", tags: ["Social Campaigns", "Brand Strategy"] },
@@ -261,8 +262,19 @@ export const success = {
 };
 
 /**
- * Case studies. `panels` are the case-study artwork in order, exported from
- * the studio's presentation deck and stacked seamlessly on the project page.
+ * Case studies.
+ *
+ * `panelCount`/`panelPath` are the deck artwork in order, exported from the
+ * studio's presentation and stacked seamlessly on the project page.
+ *
+ * `posts` is for social-media work: each entry is one Instagram post or reel.
+ * We deliberately link out rather than using Instagram's official embed —
+ * embeds drag in their own chrome, expose like counts, cost a request each,
+ * and go blank if a post is ever deleted or an ad blocker is on.
+ *
+ * `cover` is a still exported from the post (4:5, e.g. "/projects/x/01.jpg").
+ * Instagram login-walls its pages, so covers can't be fetched automatically —
+ * a tile without one renders as a labelled frame that still links out.
  */
 export const caseStudies = {
   "from-mani": {
@@ -324,5 +336,22 @@ export const caseStudies = {
     tags: ["Brand Strategy", "Brand Identity", "Packaging Design"],
     panelCount: 10,
     panelPath: "/projects/lush-house",
+  },
+  "adorn-silver": {
+    name: "Adorn Silver",
+    client: "Adorn Silver",
+    location: "",
+    year: "2025",
+    discipline: "Social Media Design & Art Direction",
+    summary:
+      "Silver jewellery lives or dies on how it catches the light — and on a feed, you get one scroll-length to prove it. We built Adorn Silver a social language of close-up product photography, considered styling and a consistent grid, so every post reads as the same brand before the caption is ever opened.",
+    tags: ["Brand Strategy", "Social Campaigns", "Product Photography"],
+    postsHeading: "Selected social work",
+    postsSub: "Tap any piece to open it on Instagram.",
+    posts: [
+      { url: "https://www.instagram.com/reel/DapxGB-MtsA/", type: "reel" },
+      { url: "https://www.instagram.com/p/DTnOBTrCRnE/", type: "post" },
+      { url: "https://www.instagram.com/reel/DPMDanZCcH1/", type: "reel" },
+    ],
   },
 } as const;

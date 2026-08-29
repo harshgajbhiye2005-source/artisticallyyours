@@ -21,6 +21,8 @@ export async function generateMetadata({
   const study = caseStudies[slug as Slug];
   if (!study) return {};
   const title = `${study.name} — Artistically Yours`;
+  // Social-media studies have no deck, so they fall back to the site card.
+  const panelPath = "panelPath" in study ? study.panelPath : null;
   return {
     title,
     description: study.summary,
@@ -28,7 +30,11 @@ export async function generateMetadata({
       title,
       description: study.summary,
       url: `${SITE_URL}/projects/${slug}/`,
-      images: [`${SITE_URL}${study.panelPath}/thumb.jpg`],
+      images: [
+        panelPath
+          ? `${SITE_URL}${panelPath}/thumb.jpg`
+          : `${SITE_URL}/og.png`,
+      ],
     },
   };
 }

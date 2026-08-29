@@ -3,8 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
+import SocialGrid, { type SocialPost } from "@/components/SocialGrid";
 import { asset } from "@/lib/asset";
 
+/**
+ * A study shows deck panels (`panelCount`/`panelPath`), social posts
+ * (`posts`), or both — social-media projects have no presentation deck.
+ */
 type Study = {
   name: string;
   client: string;
@@ -13,14 +18,22 @@ type Study = {
   discipline: string;
   summary: string;
   tags: readonly string[];
-  panelCount: number;
-  panelPath: string;
+  panelCount?: number;
+  panelPath?: string;
+  posts?: readonly SocialPost[];
+  postsHeading?: string;
+  postsSub?: string;
+  profile?: string;
 };
 
 export default function CaseStudy({ study }: { study: Study }) {
-  const panels = Array.from({ length: study.panelCount }, (_, i) =>
-    `${study.panelPath}/${String(i).padStart(2, "0")}.jpg`,
-  );
+  const panels =
+    study.panelCount && study.panelPath
+      ? Array.from(
+          { length: study.panelCount },
+          (_, i) => `${study.panelPath}/${String(i).padStart(2, "0")}.jpg`,
+        )
+      : [];
 
   return (
     <>
@@ -73,6 +86,7 @@ export default function CaseStudy({ study }: { study: Study }) {
       </section>
 
       {/* The deck artwork, stacked seamlessly */}
+      {panels.length > 0 && (
       <section aria-label={`${study.name} case study`} className="px-5 sm:px-10">
         <div className="mx-auto max-w-[60rem]">
           {panels.map((src, i) => (
@@ -92,6 +106,16 @@ export default function CaseStudy({ study }: { study: Study }) {
           ))}
         </div>
       </section>
+      )}
+
+      {study.posts && study.posts.length > 0 && (
+        <SocialGrid
+          posts={study.posts}
+          heading={study.postsHeading ?? "Selected social work"}
+          sub={study.postsSub}
+          profile={study.profile}
+        />
+      )}
 
       <section className="px-5 py-20 text-center sm:px-10">
         <Link

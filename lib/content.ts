@@ -47,6 +47,8 @@ export const heroPrompts = [
     label: "for Meow",
     // Rendered as a musical stave rather than a paragraph.
     staff: true,
+    // Sourced from Pixabay, whose content licence permits commercial use
+    // with no attribution required. Safe for a client business site.
     sound: "/meow.mp3",
     // Three meows: the recording has pauses at ~0.8s and ~1.8s.
     soundSeconds: 3.6,

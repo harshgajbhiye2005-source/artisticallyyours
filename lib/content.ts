@@ -348,6 +348,7 @@ export const caseStudies = {
     tags: ["Brand Strategy", "Social Campaigns", "Product Photography"],
     postsHeading: "Selected social work",
     postsSub: "Tap any piece to open it on Instagram.",
+    profile: "https://www.instagram.com/adornsilver.co",
     posts: [
       { url: "https://www.instagram.com/reel/DapxGB-MtsA/", type: "reel" },
       { url: "https://www.instagram.com/p/DTnOBTrCRnE/", type: "post" },

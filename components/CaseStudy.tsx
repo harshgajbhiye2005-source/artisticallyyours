@@ -3,7 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
-import SocialGrid, { type SocialPost } from "@/components/SocialGrid";
+import SocialGrid, {
+  type SocialGroup,
+  type SocialPost,
+} from "@/components/SocialGrid";
 import { asset } from "@/lib/asset";
 
 /**
@@ -21,6 +24,7 @@ type Study = {
   panelCount?: number;
   panelPath?: string;
   posts?: readonly SocialPost[];
+  postGroups?: readonly SocialGroup[];
   postsHeading?: string;
   postsSub?: string;
   profile?: string;
@@ -108,9 +112,10 @@ export default function CaseStudy({ study }: { study: Study }) {
       </section>
       )}
 
-      {study.posts && study.posts.length > 0 && (
+      {Boolean(study.posts?.length || study.postGroups?.length) && (
         <SocialGrid
           posts={study.posts}
+          groups={study.postGroups}
           heading={study.postsHeading ?? "Selected social work"}
           sub={study.postsSub}
           profile={study.profile}

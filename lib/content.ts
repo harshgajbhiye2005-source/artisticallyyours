@@ -180,9 +180,14 @@ export const projectGroups: ProjectGroup[] = [
         slug: "adorn-silver",
         tags: ["Brand Strategy", "Social Campaigns", "Product Photography"],
       },
-      { name: "303 Coffee", tags: ["Social Campaigns", "Brand Strategy"] },
+      {
+        name: "303 Coffee",
+        slug: "303-coffee",
+        tags: ["Social Campaigns", "Brand Strategy"],
+      },
       {
         name: "R. Mayur Kala",
+        slug: "mayur-kala",
         tags: ["Brand Strategy", "Social Campaigns", "Product Photography"],
       },
     ],
@@ -349,6 +354,56 @@ export const caseStudies = {
       { url: "https://www.instagram.com/reel/DapxGB-MtsA/", type: "reel" },
       { url: "https://www.instagram.com/p/DTnOBTrCRnE/", type: "post" },
       { url: "https://www.instagram.com/reel/DPMDanZCcH1/", type: "reel" },
+    ],
+  },
+  "303-coffee": {
+    name: "303 Coffee",
+    client: "Three Not Three Coffee",
+    location: "",
+    year: "2025",
+    discipline: "Social Media Design & Campaign Art Direction",
+    summary:
+      "A coffee brand's feed has to do what its counter does: make you want the next cup. We work with 303 in drops — each one a self-contained campaign with its own look, built so the launch lands as an event rather than another post in the grid.",
+    tags: ["Social Campaigns", "Brand Strategy"],
+    postsHeading: "Campaigns",
+    postsSub: "Tap any piece to open it on Instagram.",
+    profile: "https://www.instagram.com/threenotthreecoffee",
+    postGroups: [
+      {
+        heading: "Aam Drop",
+        posts: [
+          { url: "https://www.instagram.com/reel/DXMk0aLjAW2/", type: "reel" },
+          { url: "https://www.instagram.com/p/DX9Iv-Bj-lr/", type: "post" },
+          { url: "https://www.instagram.com/reel/DY822qlvWGP/", type: "reel" },
+        ],
+      },
+      {
+        heading: "Bean Drop // 001",
+        posts: [
+          { url: "https://www.instagram.com/reel/DbFeyv-vstp/", type: "reel" },
+          { url: "https://www.instagram.com/reel/DbQEv6CPpGp/", type: "reel" },
+          { url: "https://www.instagram.com/p/DcXwy3Tj-bi/", type: "post" },
+        ],
+      },
+    ],
+  },
+  "mayur-kala": {
+    name: "R. Mayur Kala",
+    client: "R. Mayur Kala",
+    location: "",
+    year: "2025",
+    discipline: "Social Media Design & Product Photography",
+    summary:
+      "Good work deserves to be seen properly. For R. Mayur Kala we built a social presence around short-form video — shot close, lit to show the detail, and cut so the first second of a reel earns the rest of it.",
+    tags: ["Brand Strategy", "Social Campaigns", "Product Photography"],
+    postsHeading: "Selected social work",
+    postsSub: "Tap any piece to open it on Instagram.",
+    profile: "https://www.instagram.com/rmayurkala",
+    posts: [
+      { url: "https://www.instagram.com/reel/DV3IJZZjUlJ/", type: "reel" },
+      { url: "https://www.instagram.com/reel/DUCt3ulD_r3/", type: "reel" },
+      { url: "https://www.instagram.com/reel/DQLdGmUj5Xs/", type: "reel" },
+      { url: "https://www.instagram.com/reel/DW8Q1auD_yA/", type: "reel" },
     ],
   },
 } as const;

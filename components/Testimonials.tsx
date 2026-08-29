@@ -6,6 +6,11 @@ import { testimonials } from "@/lib/content";
 import { asset } from "@/lib/asset";
 
 export default function Testimonials() {
+  // Nothing to show is better than showing "Client Name / designation" on a
+  // live client site. Fill `testimonials` in lib/content.ts and the whole
+  // section comes back on its own.
+  if (testimonials.length === 0) return null;
+
   return (
     <section className="relative overflow-hidden bg-blue py-24 text-white">
       {/* Oversized ghost monogram, as in the design */}

@@ -1,19 +1,14 @@
 import type { Metadata } from "next";
-import { Poppins, Instrument_Serif } from "next/font/google";
+import { Poppins } from "next/font/google";
 import { SITE_URL } from "@/lib/site-url";
 import "./globals.css";
 
+// Poppins is the brand face and the only one the site uses. Accent words are
+// set in it too — they're carried by colour, not by a second typeface.
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
-});
-
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument-serif",
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
 });
 
 const title = "Artistically Yours — Branding & Design Studio";
@@ -57,7 +52,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${instrumentSerif.variable} h-full antialiased`}
+      className={`${poppins.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

@@ -187,20 +187,14 @@ export const projectGroups: ProjectGroup[] = [
   },
 ];
 
-export const testimonials = [
-  {
-    quote:
-      "Working together was a genuine pleasure — our vision became a digital experience beyond what we imagined.",
-    name: "Client Name",
-    role: "designation",
-  },
-  {
-    quote:
-      "Working together was a genuine pleasure — our vision became a digital experience beyond what we imagined.",
-    name: "Client Name",
-    role: "designation",
-  },
-];
+/**
+ * Real client quotes only. While this is empty the whole "What they say
+ * about us" section is hidden rather than showing placeholder names to
+ * visitors — add entries in this shape and it reappears:
+ *
+ *   { quote: "…", name: "Priya Shah", role: "Founder, Adorn Silver" }
+ */
+export const testimonials: { quote: string; name: string; role: string }[] = [];
 
 // Wordmarks stand in for client logos — swap for real SVGs.
 export const clientLogos = [

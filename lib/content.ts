@@ -359,7 +359,12 @@ export const caseStudies = {
         video: "/projects/adorn-silver/manufacturing-whiplash",
       },
       { url: "https://www.instagram.com/p/DTnOBTrCRnE/", type: "post" },
-      { url: "https://www.instagram.com/reel/DPMDanZCcH1/", type: "reel" },
+      {
+        url: "https://www.instagram.com/reel/DPMDanZCcH1/",
+        type: "reel",
+        cover: "/projects/adorn-silver/street.jpg",
+        video: "/projects/adorn-silver/street",
+      },
     ],
   },
   "303-coffee": {

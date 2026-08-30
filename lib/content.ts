@@ -366,8 +366,9 @@ export const caseStudies = {
       {
         url: "https://www.instagram.com/reel/DPMDanZCcH1/",
         type: "reel",
-        cover: "/projects/adorn-silver/street.jpg",
-        video: "/projects/adorn-silver/street",
+        caption: "Nok Jhok",
+        cover: "/projects/adorn-silver/nok-jhok.jpg",
+        video: "/projects/adorn-silver/nok-jhok",
       },
     ],
   },

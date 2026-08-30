@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Reveal from "@/components/Reveal";
@@ -11,6 +12,12 @@ export type SocialPost = {
   type: "reel" | "post";
   cover?: string;
   caption?: string;
+  /**
+   * Short muted clip that loops while the tile is hovered. Needs `cover`.
+   * Give the path without an extension: a .webm and an .mp4 are both offered,
+   * VP9 for Chrome and Firefox, H.264 for Safari and iOS.
+   */
+  video?: string;
 };
 
 export type SocialGroup = {
@@ -81,13 +88,21 @@ export default function SocialGrid({
                         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                         className="absolute inset-0"
                       >
-                        <Image
-                          src={asset(post.cover)}
-                          alt={post.caption ?? `Instagram ${post.type}`}
-                          fill
-                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                          className="object-cover"
-                        />
+                        {post.video ? (
+                          <HoverVideo
+                            video={post.video}
+                            cover={post.cover}
+                            label={post.caption ?? "Instagram reel"}
+                          />
+                        ) : (
+                          <Image
+                            src={asset(post.cover)}
+                            alt={post.caption ?? `Instagram ${post.type}`}
+                            fill
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            className="object-cover"
+                          />
+                        )}
                       </motion.div>
                     ) : (
                       <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-neutral-100 text-muted">
@@ -146,4 +161,49 @@ export default function SocialGrid({
  */
 function columns(count: number) {
   return count % 3 === 0 ? "lg:grid-cols-3" : "lg:grid-cols-2";
+}
+
+/**
+ * The poster frame until someone hovers, then a muted loop.
+ *
+ * `preload="none"` means the clip costs a visitor nothing unless they show
+ * interest, and touch devices — where there is no hover — simply keep the
+ * poster and let the tap follow the link to Instagram.
+ */
+function HoverVideo({
+  video,
+  cover,
+  label,
+}: {
+  video: string;
+  cover: string;
+  label: string;
+}) {
+  const ref = useRef<HTMLVideoElement>(null);
+
+  return (
+    <video
+      ref={ref}
+      poster={asset(cover)}
+      muted
+      loop
+      playsInline
+      preload="none"
+      aria-label={label}
+      onMouseEnter={() => {
+        // Ignored if the browser declines to play; the poster just stays.
+        ref.current?.play().catch(() => {});
+      }}
+      onMouseLeave={() => {
+        const v = ref.current;
+        if (!v) return;
+        v.pause();
+        v.currentTime = 0;
+      }}
+      className="h-full w-full object-cover"
+    >
+      <source src={asset(`${video}.webm`)} type="video/webm" />
+      <source src={asset(`${video}.mp4`)} type="video/mp4" />
+    </video>
+  );
 }

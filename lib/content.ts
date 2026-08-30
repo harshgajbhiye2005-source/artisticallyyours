@@ -351,7 +351,13 @@ export const caseStudies = {
     postsSub: "Tap any piece to open it on Instagram.",
     profile: "https://www.instagram.com/adornsilver.co",
     posts: [
-      { url: "https://www.instagram.com/reel/DapxGB-MtsA/", type: "reel" },
+      {
+        url: "https://www.instagram.com/reel/DapxGB-MtsA/",
+        type: "reel",
+        caption: "Manufacturing, but make it Whiplash",
+        cover: "/projects/adorn-silver/manufacturing-whiplash.jpg",
+        video: "/projects/adorn-silver/manufacturing-whiplash",
+      },
       { url: "https://www.instagram.com/p/DTnOBTrCRnE/", type: "post" },
       { url: "https://www.instagram.com/reel/DPMDanZCcH1/", type: "reel" },
     ],

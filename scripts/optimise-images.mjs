@@ -9,9 +9,9 @@
  *   - Case-study deck panels (00.jpg, 01.png, …) become WebP, roughly half
  *     the weight at the same visible quality. The original is deleted, since
  *     the deck PDFs remain the real source.
- *   - Thumbnails (thumb.jpg) stay JPEG — they double as the Open Graph card
- *     when a page is shared, and not every social scraper reads WebP — but
- *     they are re-encoded if they are heavier than they need to be.
+ *   - Every other image keeps its format — thumbnails double as the Open
+ *     Graph card when a page is shared, and not every social scraper reads
+ *     WebP — but is re-encoded when heavier than it needs to be.
  *   - Anything wider than MAX_WIDTH is scaled down. Nothing on the site is
  *     displayed larger than that, so the extra pixels were never seen.
  *
@@ -28,11 +28,10 @@ const PUBLIC = new URL("../public/", import.meta.url).pathname;
 const MAX_WIDTH = 2304;
 const WEBP_QUALITY = 82;
 const JPEG_QUALITY = 82;
-// Re-encode a JPEG only when there is enough to gain to be worth the churn.
-const JPEG_REENCODE_OVER = 180 * 1024;
+// Re-encode only when there is enough to gain to be worth the churn.
+const REENCODE_OVER = 180 * 1024;
 
 const isPanel = (name) => /^\d\d\.(jpg|jpeg|png)$/i.test(name);
-const isThumb = (name) => /^thumb\.(jpg|jpeg|png)$/i.test(name);
 
 async function* walk(dir) {
   for (const entry of await readdir(dir, { withFileTypes: true })) {
@@ -73,14 +72,18 @@ for await (const path of walk(PUBLIC)) {
     continue;
   }
 
-  if (isThumb(name) && (size > JPEG_REENCODE_OVER || oversized)) {
-    // Stays JPEG for Open Graph, but need not be this heavy.
+  if (size > REENCODE_OVER || oversized) {
+    // Everything else stays in its own format — thumbnails double as the
+    // Open Graph card, and not every social scraper reads WebP — but nothing
+    // needs to be this heavy.
     const tmp = join(dirname(path), `.tmp-${name}`);
     let pipeline = sharp(path);
     if (resize) pipeline = pipeline.resize(resize);
-    await pipeline
-      .jpeg({ quality: JPEG_QUALITY, progressive: true, mozjpeg: true })
-      .toFile(tmp);
+    pipeline =
+      ext === ".png"
+        ? pipeline.png({ compressionLevel: 9, palette: true })
+        : pipeline.jpeg({ quality: JPEG_QUALITY, progressive: true, mozjpeg: true });
+    await pipeline.toFile(tmp);
     const now = (await stat(tmp)).size;
     if (now < size) {
       await rename(tmp, path);
@@ -90,17 +93,6 @@ for await (const path of walk(PUBLIC)) {
     } else {
       await unlink(tmp);
     }
-    continue;
-  }
-
-  if (oversized) {
-    const tmp = join(dirname(path), `.tmp-${name}`);
-    await sharp(path).resize(resize).toFile(tmp);
-    const now = (await stat(tmp)).size;
-    await rename(tmp, path);
-    before += size;
-    after += now;
-    changes.push(`  ${name} ${meta.width}px → ${MAX_WIDTH}px  ${kb(size)} → ${kb(now)}`);
   }
 }
 

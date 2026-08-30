@@ -358,7 +358,11 @@ export const caseStudies = {
         cover: "/projects/adorn-silver/manufacturing-whiplash.jpg",
         video: "/projects/adorn-silver/manufacturing-whiplash",
       },
-      { url: "https://www.instagram.com/p/DTnOBTrCRnE/", type: "post" },
+      {
+        url: "https://www.instagram.com/p/DTnOBTrCRnE/",
+        type: "post",
+        cover: "/projects/adorn-silver/post.jpg",
+      },
       {
         url: "https://www.instagram.com/reel/DPMDanZCcH1/",
         type: "reel",

@@ -4,7 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "optimise": "node scripts/optimise-images.mjs",
+    "prebuild": "node scripts/optimise-images.mjs",
     "build": "next build",
+    "postbuild": "node scripts/check-weight.mjs",
     "start": "next start",
     "lint": "eslint"
   },
@@ -22,6 +25,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.10",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "sharp": "^0.34.5"
   }
 }

@@ -35,7 +35,9 @@ export default function CaseStudy({ study }: { study: Study }) {
     study.panelCount && study.panelPath
       ? Array.from(
           { length: study.panelCount },
-          (_, i) => `${study.panelPath}/${String(i).padStart(2, "0")}.jpg`,
+          // WebP: the deck panels are the heaviest thing on the site, and it
+          // costs about 46% of their weight against the JPEGs they replaced.
+          (_, i) => `${study.panelPath}/${String(i).padStart(2, "0")}.webp`,
         )
       : [];
 

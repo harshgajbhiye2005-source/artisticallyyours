@@ -361,6 +361,7 @@ export const caseStudies = {
       {
         url: "https://www.instagram.com/p/DTnOBTrCRnE/",
         type: "post",
+        caption: "Anna",
         cover: "/projects/adorn-silver/post.jpg",
       },
       {

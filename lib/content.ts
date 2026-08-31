@@ -354,6 +354,7 @@ export const caseStudies = {
       {
         url: "https://www.instagram.com/reel/DJOqFFIJV5Z/",
         type: "reel",
+        caption: "Manufacturing of a silver biscuit",
         cover: "/projects/adorn-silver/silver-biscuit.jpg",
         video: "/projects/adorn-silver/silver-biscuit",
       },
@@ -369,6 +370,13 @@ export const caseStudies = {
         caption: "Nok Jhok",
         cover: "/projects/adorn-silver/nok-jhok.jpg",
         video: "/projects/adorn-silver/nok-jhok",
+      },
+      {
+        url: "https://www.instagram.com/reel/DLuojaKpmR4/",
+        type: "reel",
+        caption: "Yin Yang",
+        cover: "/projects/adorn-silver/yin-yang.jpg",
+        video: "/projects/adorn-silver/yin-yang",
       },
     ],
   },

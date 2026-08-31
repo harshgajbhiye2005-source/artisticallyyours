@@ -28,8 +28,10 @@ const PUBLIC = new URL("../public/", import.meta.url).pathname;
 const MAX_WIDTH = 2304;
 const WEBP_QUALITY = 82;
 const JPEG_QUALITY = 82;
-// Re-encode only when there is enough to gain to be worth the churn.
-const REENCODE_OVER = 180 * 1024;
+// Re-encode only when there is enough to gain to be worth the churn. Set
+// above the weight of a legitimate full-width cover, so deliberately cut
+// artwork is not put through a second lossy pass to save a few percent.
+const REENCODE_OVER = 300 * 1024;
 
 const isPanel = (name) => /^\d\d\.(jpg|jpeg|png)$/i.test(name);
 

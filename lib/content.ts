@@ -392,15 +392,19 @@ export const caseStudies = {
     postsHeading: "Selected social work",
     postsSub: "Tap any piece to open it on Instagram.",
     profile: "https://www.instagram.com/threenotthreecoffee",
-    // The mango-market still belongs in second place; its artwork is cut and
-    // waiting at /projects/303-coffee/aam-market.jpg, held back only until
-    // its own Instagram post is known rather than guessed.
     posts: [
       {
         url: "https://www.instagram.com/reel/DXMk0aLjAW2/",
         type: "reel",
         cover: "/projects/303-coffee/mango-teaser.jpg",
         video: "/projects/303-coffee/mango-teaser",
+      },
+      {
+        // Interim link: this tile points at the feed rather than its own post,
+        // which is not yet known. Swap in the post URL when it is.
+        url: "https://www.instagram.com/threenotthreecoffee",
+        type: "post",
+        cover: "/projects/303-coffee/aam-market.jpg",
       },
       {
         url: "https://www.instagram.com/reel/DbQEv6CPpGp/",

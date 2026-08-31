@@ -389,26 +389,15 @@ export const caseStudies = {
     summary:
       "A coffee brand's feed has to do what its counter does: make you want the next cup. We work with 303 in drops — each one a self-contained campaign with its own look, built so the launch lands as an event rather than another post in the grid.",
     tags: ["Social Campaigns", "Brand Strategy"],
-    postsHeading: "Campaigns",
+    postsHeading: "Selected social work",
     postsSub: "Tap any piece to open it on Instagram.",
     profile: "https://www.instagram.com/threenotthreecoffee",
-    postGroups: [
-      {
-        heading: "Aam Drop",
-        posts: [
-          { url: "https://www.instagram.com/reel/DXMk0aLjAW2/", type: "reel" },
-          { url: "https://www.instagram.com/p/DX9Iv-Bj-lr/", type: "post" },
-          { url: "https://www.instagram.com/reel/DY822qlvWGP/", type: "reel" },
-        ],
-      },
-      {
-        heading: "Bean Drop // 001",
-        posts: [
-          { url: "https://www.instagram.com/reel/DbFeyv-vstp/", type: "reel" },
-          { url: "https://www.instagram.com/reel/DbQEv6CPpGp/", type: "reel" },
-          { url: "https://www.instagram.com/p/DcXwy3Tj-bi/", type: "post" },
-        ],
-      },
+    // The still belongs in second place; it is held back until its own
+    // Instagram post is known, rather than guessed from the ones dropped.
+    posts: [
+      { url: "https://www.instagram.com/reel/DXMk0aLjAW2/", type: "reel" },
+      { url: "https://www.instagram.com/reel/DbQEv6CPpGp/", type: "reel" },
+      { url: "https://www.instagram.com/reel/Daz46c5Pr4X/", type: "reel" },
     ],
   },
   "mayur-kala": {

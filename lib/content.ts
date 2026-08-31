@@ -392,12 +392,28 @@ export const caseStudies = {
     postsHeading: "Selected social work",
     postsSub: "Tap any piece to open it on Instagram.",
     profile: "https://www.instagram.com/threenotthreecoffee",
-    // The still belongs in second place; it is held back until its own
-    // Instagram post is known, rather than guessed from the ones dropped.
+    // The mango-market still belongs in second place; its artwork is cut and
+    // waiting at /projects/303-coffee/aam-market.jpg, held back only until
+    // its own Instagram post is known rather than guessed.
     posts: [
-      { url: "https://www.instagram.com/reel/DXMk0aLjAW2/", type: "reel" },
-      { url: "https://www.instagram.com/reel/DbQEv6CPpGp/", type: "reel" },
-      { url: "https://www.instagram.com/reel/Daz46c5Pr4X/", type: "reel" },
+      {
+        url: "https://www.instagram.com/reel/DXMk0aLjAW2/",
+        type: "reel",
+        cover: "/projects/303-coffee/mango-teaser.jpg",
+        video: "/projects/303-coffee/mango-teaser",
+      },
+      {
+        url: "https://www.instagram.com/reel/DbQEv6CPpGp/",
+        type: "reel",
+        cover: "/projects/303-coffee/bean-drop.jpg",
+        video: "/projects/303-coffee/bean-drop",
+      },
+      {
+        url: "https://www.instagram.com/reel/Daz46c5Pr4X/",
+        type: "reel",
+        cover: "/projects/303-coffee/dear-forks.jpg",
+        video: "/projects/303-coffee/dear-forks",
+      },
     ],
   },
   "mayur-kala": {

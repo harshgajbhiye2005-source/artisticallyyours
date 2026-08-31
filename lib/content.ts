@@ -435,10 +435,26 @@ export const caseStudies = {
     postsSub: "Tap any piece to open it on Instagram.",
     profile: "https://www.instagram.com/rmayurkala",
     posts: [
-      { url: "https://www.instagram.com/reel/DV3IJZZjUlJ/", type: "reel" },
-      { url: "https://www.instagram.com/reel/DUCt3ulD_r3/", type: "reel" },
-      { url: "https://www.instagram.com/reel/DQLdGmUj5Xs/", type: "reel" },
-      { url: "https://www.instagram.com/reel/DW8Q1auD_yA/", type: "reel" },
+      {
+        url: "https://www.instagram.com/reel/DW8Q1auD_yA/",
+        type: "reel",
+        caption: "Pooja in the spotlight",
+      },
+      {
+        url: "https://www.instagram.com/reel/DQLdGmUj5Xs/",
+        type: "reel",
+        caption: "Lotus",
+      },
+      {
+        url: "https://www.instagram.com/reel/DV3IJZZjUlJ/",
+        type: "reel",
+        caption: "Fruits",
+      },
+      {
+        url: "https://www.instagram.com/reel/DVBVlKqjanV/",
+        type: "reel",
+        caption: "Curtains",
+      },
     ],
   },
 } as const;

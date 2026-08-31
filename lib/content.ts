@@ -167,7 +167,12 @@ export const projectGroups: ProjectGroup[] = [
         image: "/projects/lush-house/thumb.jpg",
         tags: ["Brand Strategy", "Brand Identity", "Packaging Design"],
       },
-      { name: "Wahid Marketing", tags: ["Brand Identity", "Instore Design"] },
+      {
+        name: "Wahid Marketing",
+        slug: "wahid-marketing",
+        image: "/projects/wahid-marketing/thumb.jpg",
+        tags: ["Brand Identity", "Instore Design"],
+      },
     ],
   },
   {
@@ -421,6 +426,20 @@ export const caseStudies = {
         video: "/projects/303-coffee/dear-forks",
       },
     ],
+  },
+  "wahid-marketing": {
+    name: "Wahid Marketing",
+    client: "Wahid Marketing",
+    location: "",
+    year: "2025",
+    discipline: "Brand Identity Design",
+    summary:
+      "Plumbing under one roof. The word \u201cWahid\u201d is set in a bold serif, for strength, reliability and trustworthiness, with a subtle detail between the \u2018a\u2019 and the \u2018h\u2019 that reads as connection \u2014 the seamless flow of solutions the brand provides. \u201cMarketing\u201d sits beneath in a clean sans, balancing modernity with professionalism. The interplay of serif and sans reflects tradition blended with modernity, much like Wahid Marketing\u2019s own approach of combining experience, integrity and innovation. The structured box mirrors their systematic processes, while the water drop conveys solution-oriented clarity.",
+    tags: ["Brand Identity", "Instore Design"],
+    panelCount: 8,
+    panelPath: "/projects/wahid-marketing",
+    panelWidth: 1320,
+    panelHeight: 1259,
   },
   "mayur-kala": {
     name: "R. Mayur Kala",

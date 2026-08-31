@@ -23,6 +23,14 @@ type Study = {
   tags: readonly string[];
   panelCount?: number;
   panelPath?: string;
+  /**
+   * Intrinsic panel size, used only to reserve the right space before the
+   * image arrives. Decks exported as separate slides are near-square; one
+   * exported as a single tall artboard and sliced is not, and a wrong ratio
+   * here shows up as the page jumping while it loads.
+   */
+  panelWidth?: number;
+  panelHeight?: number;
   posts?: readonly SocialPost[];
   postGroups?: readonly SocialGroup[];
   postsHeading?: string;
@@ -104,8 +112,8 @@ export default function CaseStudy({ study }: { study: Study }) {
                   ? `${study.name} brand identity — opening panel`
                   : `${study.name} brand identity — panel ${i + 1}`
               }
-              width={1323}
-              height={1342}
+              width={study.panelWidth ?? 1323}
+              height={study.panelHeight ?? 1342}
               priority={i === 0}
               className="block h-auto w-full"
             />

@@ -43,7 +43,7 @@ From a full reel:
 SRC=reel.mp4          # the original export
 OUT=public/projects/<slug>/<name>
 START=6.5             # where the loop begins — pick this deliberately
-VF="crop=iw:iw*5/4,scale=720:900:flags=lanczos"
+VF="crop=iw:iw*5/4,scale=720:900:flags=lanczos,fps=30"
 
 # Poster: the frame the loop starts on, so hovering doesn't jump
 ffmpeg -ss $START -i $SRC -frames:v 1 -vf "$VF" -q:v 2 $OUT.jpg
@@ -69,6 +69,12 @@ path carries **no extension**, since both encodes are offered from it:
   video: "/projects/adorn-silver/manufacturing-whiplash",
 }
 ```
+
+**Always keep `fps=30` in the filter chain.** Phone exports are often 60fps,
+which doubles both the file size and the decode work for a loop nobody watches
+frame by frame. A 60fps tile shipped once and silently refused to play on a
+machine that could not hardware-decode it at that rate — the other tiles on the
+same page were fine, which is what made it hard to spot.
 
 A 30–70 second reel lands around 450–650KB this way, and `preload="none"` means
 even that is not fetched until a visitor hovers the tile. Touch devices, having

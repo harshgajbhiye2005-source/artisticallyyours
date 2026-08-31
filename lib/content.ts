@@ -396,25 +396,27 @@ export const caseStudies = {
       {
         url: "https://www.instagram.com/reel/DXMk0aLjAW2/",
         type: "reel",
+        caption: "Aam Teaser",
         cover: "/projects/303-coffee/mango-teaser.jpg",
         video: "/projects/303-coffee/mango-teaser",
       },
       {
-        // Interim link: this tile points at the feed rather than its own post,
-        // which is not yet known. Swap in the post URL when it is.
-        url: "https://www.instagram.com/threenotthreecoffee",
+        url: "https://www.instagram.com/p/DX9Iv-Bj-lr/",
         type: "post",
+        caption: "Aam Drop pictures",
         cover: "/projects/303-coffee/aam-market.jpg",
       },
       {
         url: "https://www.instagram.com/reel/DbQEv6CPpGp/",
         type: "reel",
+        caption: "Bean Drop",
         cover: "/projects/303-coffee/bean-drop.jpg",
         video: "/projects/303-coffee/bean-drop",
       },
       {
         url: "https://www.instagram.com/reel/Daz46c5Pr4X/",
         type: "reel",
+        caption: "Dear Forks",
         cover: "/projects/303-coffee/dear-forks.jpg",
         video: "/projects/303-coffee/dear-forks",
       },

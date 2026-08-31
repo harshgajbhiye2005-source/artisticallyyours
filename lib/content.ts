@@ -352,11 +352,10 @@ export const caseStudies = {
     profile: "https://www.instagram.com/adornsilver.co",
     posts: [
       {
-        url: "https://www.instagram.com/reel/DapxGB-MtsA/",
+        url: "https://www.instagram.com/reel/DJOqFFIJV5Z/",
         type: "reel",
-        caption: "Manufacturing, but make it Whiplash",
-        cover: "/projects/adorn-silver/manufacturing-whiplash.jpg",
-        video: "/projects/adorn-silver/manufacturing-whiplash",
+        cover: "/projects/adorn-silver/silver-biscuit.jpg",
+        video: "/projects/adorn-silver/silver-biscuit",
       },
       {
         url: "https://www.instagram.com/p/DTnOBTrCRnE/",
